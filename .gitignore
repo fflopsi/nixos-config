@@ -1,0 +1,4 @@
+# .gitignore for NixOS flake
+
+# Hardware specific config
+hardware-configuration.nix
