@@ -123,7 +123,7 @@
     micro
     btop
     tldr
-    git
+    gitFull
     inetutils
     wget
     curl

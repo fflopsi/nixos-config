@@ -94,8 +94,8 @@
     userEmail = "florian.l.frauenfelder@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-      #credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
       credential.helper = "libsecret";
+      # credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret"; # without gitFull package
     };
   };
 
