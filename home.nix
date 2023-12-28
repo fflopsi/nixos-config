@@ -20,6 +20,8 @@
   # Packages to be installed
   home.packages = [
     pkgs.onlyoffice-bin
+    pkgs.texliveMedium
+    pkgs.texstudio
     pkgs.rnote
     pkgs.xournalpp
     pkgs.geogebra6
