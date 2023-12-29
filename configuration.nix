@@ -13,18 +13,13 @@
     ./hardware-configuration.nix
   ];
   
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    # Systemd-boot-specific config
     systemd-boot = {
+      # Use systemd-boot as bootloader
       enable = true;
       configurationLimit = 5;
     };
@@ -35,11 +30,6 @@
     hostName = "flopsi-thinkpad-nix";
     networkmanager.enable = true;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    # Configure network proxy if necessary
-    # proxy = {
-    #   default = "http://user:password@proxy:port/";
-    #   noProxy = "127.0.0.1,localhost,internal.domain";
-    # };
   };
 
   # Set your time zone.

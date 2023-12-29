@@ -18,26 +18,26 @@
   programs.home-manager.enable = true;
   
   # Packages to be installed
-  home.packages = [
-    pkgs.onlyoffice-bin
-    pkgs.texliveMedium
-    pkgs.texstudio
-    pkgs.rnote
-    pkgs.xournalpp
-    pkgs.geogebra6
-    pkgs.megasync
-    pkgs.rclone
-    pkgs.terminus-nerdfont
-    pkgs.gnome-secrets
-    pkgs.papirus-icon-theme
-    pkgs.adw-gtk3
-    pkgs.gnome-browser-connector
-    pkgs.iio-sensor-proxy
-    pkgs.android-studio
-    pkgs.jetbrains.idea-community
-    pkgs.jetbrains.pycharm-community
-    pkgs.gnomeExtensions.quick-settings-tweaker
-    pkgs.gnomeExtensions.gnome-40-ui-improvements
+  home.packages = with pkgs; [
+    onlyoffice-bin
+    texliveMedium
+    texstudio
+    rnote
+    xournalpp
+    geogebra6
+    megasync
+    rclone
+    terminus-nerdfont
+    gnome-secrets
+    papirus-icon-theme
+    adw-gtk3
+    gnome-browser-connector
+    iio-sensor-proxy
+    android-studio
+    jetbrains.idea-community
+    jetbrains.pycharm-community
+    gnomeExtensions.quick-settings-tweaker
+    gnomeExtensions.gnome-40-ui-improvements
   ];
   
   #home.activation = {
@@ -97,7 +97,6 @@
     extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "libsecret";
-      # credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret"; # without gitFull package
     };
   };
 
