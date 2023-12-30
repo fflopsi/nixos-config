@@ -53,6 +53,9 @@
   # Add script to change Gnome theme quickly
   home.file.".local/bin/change-theme".source = ./scripts/change-theme;
   
+  # Autostart megasync
+  home.file.".config/autostart/megasync.desktop".source = ./config/megasync.desktop;
+  
   # Bash
   programs.bash = {
     enable = true;
