@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, lib, ... }:
+{ config, osConfig, pkgs, ... }:
 
 {
   home.username = "flopsi";
