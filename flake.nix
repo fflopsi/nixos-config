@@ -17,14 +17,14 @@
     nixosConfigurations = {
       flopsi-thinkpad-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
+        modules = let machineFolder = "machines/flopsi-thinkpad-nix"; in [
+          ./${machineFolder}/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.flopsi = import ./home.nix;
+              users.flopsi = import ./${machineFolder}/home.nix;
             };
           }
         ];

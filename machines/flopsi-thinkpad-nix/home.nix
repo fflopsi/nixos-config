@@ -42,10 +42,10 @@
   home.sessionPath = [ "$HOME/.local/bin" ];
   
   # Add script to change Gnome theme quickly
-  home.file.".local/bin/change-theme".source = ./scripts/change-theme;
+  home.file.".local/bin/change-theme".source = ../../scripts/change-theme;
   
   # Autostart megasync
-  home.file.".config/autostart/megasync.desktop".source = ./config/megasync.desktop;
+  home.file.".config/autostart/megasync.desktop".source = ../../config/megasync.desktop;
   
   # Bash
   programs.bash = {
@@ -80,7 +80,7 @@
     enable = true;
     enableBashIntegration = true;
     #useTheme = "powerlevel10k_lean";
-    settings = import ./config/omp_theme.nix;
+    settings = import ../../config/omp_theme.nix;
   };
 
   # Git
