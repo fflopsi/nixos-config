@@ -69,6 +69,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.avahi.enable = true;
   services.avahi.nssmdns = true;
 
   # Enable sound with pipewire.
