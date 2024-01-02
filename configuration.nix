@@ -109,22 +109,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     topgrade
-    firefox
-    libreoffice
-    micro
-    btop
-    tldr
-    gitFull
-    inetutils
-    wget
-    curl
-    sl
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    gnome-menus
-    gnome-extension-manager
-    gnomeExtensions.appindicator
-    gnomeExtensions.clipboard-indicator
+    firefox libreoffice
+    micro btop tldr gitFull inetutils wget curl sl
+    gnome.gnome-tweaks gnome.dconf-editor gnome-menus gnome-extension-manager
+    gnomeExtensions.appindicator gnomeExtensions.clipboard-indicator
   ];
 
   # Enable auto-rotation on supported laptops

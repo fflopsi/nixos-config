@@ -20,24 +20,15 @@
   # Packages to be installed
   home.packages = with pkgs; [
     onlyoffice-bin
-    texliveMedium
-    texstudio
-    rnote
-    xournalpp
+    texliveMedium texstudio
+    rnote xournalpp
     geogebra6
-    megasync
-    rclone
-    terminus-nerdfont
-    gnome-secrets
-    papirus-icon-theme
-    adw-gtk3
-    gnome-browser-connector
+    megasync rclone
+    terminus-nerdfont papirus-icon-theme adw-gtk3
+    android-studio jetbrains.idea-community jetbrains.pycharm-community
+    gnome-secrets gnome-browser-connector
+    gnomeExtensions.quick-settings-tweaker gnomeExtensions.gnome-40-ui-improvements
     iio-sensor-proxy
-    android-studio
-    jetbrains.idea-community
-    jetbrains.pycharm-community
-    gnomeExtensions.quick-settings-tweaker
-    gnomeExtensions.gnome-40-ui-improvements
   ];
   
   #home.activation = {
