@@ -21,7 +21,7 @@
   home.packages = with pkgs; [
     onlyoffice-bin
     texliveMedium texstudio unstable.typst
-    rnote xournalpp
+    unstable.obsidian rnote xournalpp
     geogebra6
     megasync rclone
     terminus-nerdfont papirus-icon-theme adw-gtk3
@@ -141,7 +141,7 @@
     };
     
     "org/gnome/shell" = {
-      favorite-apps = [ "firefox.desktop" "org.gnome.Nautilus.desktop" "com.github.flxzt.rnote.desktop" "com.github.xournalpp.xournalpp.desktop" "md.obsidian.Obsidian.desktop" ];
+      favorite-apps = [ "firefox.desktop" "org.gnome.Nautilus.desktop" "com.github.flxzt.rnote.desktop" "com.github.xournalpp.xournalpp.desktop" "obsidian.desktop" ];
     };
 
     "org/gnome/desktop/interface" = {
