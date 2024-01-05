@@ -14,7 +14,7 @@
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  
   # Bootloader
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -95,9 +95,6 @@
     description = "Florian Frauenfelder";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Allow auto-upgrading
   system.autoUpgrade = {

@@ -16,11 +16,11 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
   # Packages to be installed
   home.packages = with pkgs; [
     onlyoffice-bin
-    texliveMedium texstudio
+    texliveMedium texstudio unstable.typst
     rnote xournalpp
     geogebra6
     megasync rclone
