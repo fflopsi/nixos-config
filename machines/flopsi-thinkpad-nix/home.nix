@@ -20,7 +20,8 @@
   # Packages to be installed
   home.packages = with pkgs; [
     onlyoffice-bin
-    texliveMedium texstudio unstable.typst
+    (texlive.combine { inherit (texlive) scheme-medium minted; })
+    texstudio unstable.typst
     unstable.obsidian rnote xournalpp
     geogebra6
     megasync rclone
