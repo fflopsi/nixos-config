@@ -13,7 +13,15 @@
     ./hardware-configuration.nix
   ];
   
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ]; # Enable flakes
+    optimise.automatic = true; # Optimise nix store by hardlinking
+    gc = {
+      automatic = true; # Automate garbage collection
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
   
   # Bootloader
   boot.loader = {
