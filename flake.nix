@@ -37,15 +37,15 @@
       flopsi-thinkpad-nix = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit pkgs; };
-        modules = let machineFolder = "machines/flopsi-thinkpad-nix"; in [
-          ./${machineFolder}/configuration.nix
+        modules = let machine = "machines/thinkpad"; in [
+          ./${machine}/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = { inherit pkgs; };
-              users.flopsi = import ./${machineFolder}/home.nix;
+              users.flopsi = import ./${machine}/home.nix;
             };
           }
         ];

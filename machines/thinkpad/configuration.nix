@@ -1,17 +1,13 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 # IMPORTANT: If some error with python and arch-version of systemd
 # comes up when trying to rebuild, use '--install-bootloader'
 
 { config, pkgs, ... }:
 
 {
-  imports = [
+  imports = let modules = "../../modules/nixos"; in [
     ./hardware-configuration.nix
-    ../../modules/nixos/basic-configuration.nix
-    ../../modules/nixos/packages.nix
+    ./${modules}/basic-configuration.nix
+    ./${modules}/packages.nix
   ];
 
   # Networking
@@ -57,12 +53,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
 }
