@@ -16,7 +16,10 @@
       grep = "grep --color=auto";
       ip = "ip --color=auto";
     };
-    bashrcExtra = "mkdircd () { mkdir -p $1 && cd $1; }";
+    bashrcExtra = ''
+      mkdircd () { mkdir -p $1 && cd $1; }
+      rebuild () { git -C /etc/nixos fetch && git -C /etc/nixos pull && sudo nixos-rebuild switch; }
+    '';
   };
 
   # Readline config for bash history search
