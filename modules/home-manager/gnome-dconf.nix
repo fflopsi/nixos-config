@@ -15,7 +15,7 @@
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Control><Alt>dead_circumflex";
+      binding = "<Control><Alt>0";
       command = "change-theme";
       name = "Change theme";
     };
