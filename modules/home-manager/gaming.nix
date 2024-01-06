@@ -5,5 +5,6 @@
     heroic
     discord
     spotify
+    chromium
   ];
 }
