@@ -15,7 +15,7 @@
       hide-search = false;
     };
 
-    "/org/gnome/shell/extensions/quick-settings-tweaks" = {
+    "org/gnome/shell/extensions/quick-settings-tweaks" = {
       add-dnd-quick-toggle-enabled = false;
       user-removed-buttons = [ "RfkillToggle" "KeyboardBrightnessToggle" "DarkModeToggle" "NightLightToggle" ];
     };
