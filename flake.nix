@@ -51,6 +51,22 @@
           }
         ];
       };
+      flopsi-desktop-nix = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit pkgs; };
+        modules = let machine = "machines/desktop"; in [
+          ./${machine}/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit pkgs; };
+              users.flopsi = import ./${machine}/home.nix;
+            };
+          }
+        ];
+      };
     };
   };
 }
