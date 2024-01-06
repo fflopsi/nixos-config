@@ -1,7 +1,7 @@
 # System flake
 
 {
-  description = "Flake for nixos-rebuild flopsi-thinkpad-nix";
+  description = "Flake for nixos-rebuild";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11"; # stable release
@@ -20,16 +20,17 @@
       inherit system;
       config.allowUnfree = true;
       # For using pkgs.unstable.<package> instead of unstable.<package>
-      overlays = [ overlay-unstable ];
-    };
-    overlay-unstable = final: prev: {
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          permittedInsecurePackages = [ "electron-25.9.0" ]; # For Obsidian
-        };
-      };
+      overlays = [
+        (final: prev: {
+          unstable = import nixpkgs-unstable {
+            inherit system;
+            config = {
+              allowUnfree = true;
+              permittedInsecurePackages = [ "electron-25.9.0" ]; # For Obsidian
+            };
+          };
+        })
+      ];
     };
   in
   {
