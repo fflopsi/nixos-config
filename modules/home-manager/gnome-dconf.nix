@@ -72,6 +72,11 @@
       current-workspace-only = true;
     };
 
+    "org/gtk/gtk4/settings/file-chooser" = {
+      show-hidden = true;
+      sort-directories-first = true;
+    };
+
     "org/gnome/Console" = {
       theme = "auto";
     };
