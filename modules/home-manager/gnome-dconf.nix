@@ -72,6 +72,10 @@
       current-workspace-only = true;
     };
 
+    "org/gnome/Console" = {
+      theme = "auto";
+    };
+
     "org/gnome/desktop/calendar" = {
       show-weekdate = true;
     };
