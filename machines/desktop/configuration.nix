@@ -5,7 +5,7 @@
 
 {
   imports = let modules = "../../modules/nixos"; in [
-    #./hardware-configuration.nix
+    ./hardware-configuration.nix
     ./${modules}/basic-configuration.nix
     ./${modules}/packages.nix
     ./${modules}/steam.nix
