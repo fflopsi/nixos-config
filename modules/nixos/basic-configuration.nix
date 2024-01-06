@@ -1,0 +1,81 @@
+{ ... }:
+
+{
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ]; # Enable flakes
+    optimise.automatic = true; # Optimise nix store by hardlinking
+    gc = {
+      automatic = true; # Automate garbage collection
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
+
+  # Bootloader
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      # Use systemd-boot as bootloader
+      enable = true;
+      configurationLimit = 5;
+    };
+  };
+
+  # Set time zone
+  time.timeZone = "Europe/Zurich";
+
+  # Select internationalisation properties
+  i18n = {
+    defaultLocale = "en_US.UTF-8"; # System language
+    extraLocaleSettings = { # Formats
+      LC_ADDRESS = "de_CH.UTF-8";
+      LC_IDENTIFICATION = "de_CH.UTF-8";
+      LC_MEASUREMENT = "de_CH.UTF-8";
+      LC_MONETARY = "de_CH.UTF-8";
+      LC_NAME = "de_CH.UTF-8";
+      LC_NUMERIC = "de_CH.UTF-8";
+      LC_PAPER = "de_CH.UTF-8";
+      LC_TELEPHONE = "de_CH.UTF-8";
+      LC_TIME = "de_CH.UTF-8";
+    };
+  };
+
+  # X11 windowing system
+  services.xserver = {
+    enable = true;
+    # Enable GNOME
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    # Enable touchpad support (enabled default in most desktopManager)
+    # libinput.enable = true;
+  };
+
+  # Enable CUPS to print documents
+  services.printing.enable = true;
+  # Enable printer specific fixes
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
+  # Enable sound with pipewire
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Define user account
+  users.users.flopsi = {
+    isNormalUser = true;
+    description = "Florian Frauenfelder";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+}
