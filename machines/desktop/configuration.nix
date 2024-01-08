@@ -6,17 +6,12 @@
 {
   imports = let modules = "../../modules/nixos"; in [
     ./hardware-configuration.nix
-    ./${modules}/basic-configuration.nix
-    ./${modules}/packages.nix
+    ./${modules}/configuration.nix
     ./${modules}/steam.nix
   ];
 
   # Networking
-  networking = {
-    hostName = "flopsi-desktop-nix";
-    networkmanager.enable = true;
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  };
+  networking.hostName = "flopsi-desktop-nix";
 
   # X11 windowing system
   services.xserver = {

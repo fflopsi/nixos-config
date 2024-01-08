@@ -6,16 +6,11 @@
 {
   imports = let modules = "../../modules/nixos"; in [
     ./hardware-configuration.nix
-    ./${modules}/basic-configuration.nix
-    ./${modules}/packages.nix
+    ./${modules}/configuration.nix
   ];
 
   # Networking
-  networking = {
-    hostName = "flopsi-thinkpad-nix";
-    networkmanager.enable = true;
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  };
+  networking.hostName = "flopsi-thinkpad-nix";
 
   # X11 windowing system
   services.xserver = {
@@ -31,9 +26,7 @@
   hardware.sensor.iio.enable = true;
 
   # Enable firefox touchscreen support
-  environment.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1";
-  };
+  environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

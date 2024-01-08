@@ -1,6 +1,14 @@
-{ pkgs, ... }:
+{ config, osConfig, pkgs, ... }:
 
 {
+  imports = [
+    ./gnome-dconf.nix
+    ./gnome-extensions.nix
+    ./office.nix
+    ./coding.nix
+    ./bash.nix
+  ];
+
   home.username = "flopsi";
   home.homeDirectory = "/home/flopsi";
 
