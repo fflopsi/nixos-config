@@ -23,6 +23,10 @@
   # Configure console keymap
   console.keyMap = "us";
 
+  systemd.tmpfiles.rules = [
+    "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm_monitors.xml" "${builtins.readFile ../../files/monitors-desktop.xml}"}"
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
