@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     onlyoffice-bin
     python3 python311Packages.pygments
-    (texlive.combine { inherit (texlive) scheme-medium minted cancel; })
+    (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig; })
     texstudio unstable.typst
     unstable.obsidian rnote xournalpp
     geogebra6
