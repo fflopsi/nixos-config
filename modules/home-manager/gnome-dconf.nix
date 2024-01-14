@@ -10,7 +10,7 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/media-keys" = {
       calculator = [ "<Super>c" ];
       control-center = [ "<Super>i" ];
-      custom-keybindings = [ "/${keybinds}/custom0/" "/${keybinds}/custom1/" "/${keybinds}/custom2/" "/${keybinds}/custom3/" "/${keybinds}/custom4/" "/${keybinds}/custom5/" ];
+      custom-keybindings = [ "/${keybinds}/custom0/" "/${keybinds}/custom1/" "/${keybinds}/custom2/" "/${keybinds}/custom3/" "/${keybinds}/custom4/" "/${keybinds}/custom5/" "/${keybinds}/custom6/" "/${keybinds}/custom7/" ];
       home = [ "<Super>e" ];
       www = [ "<Super>b" ];
     };
@@ -49,6 +49,22 @@ with lib.hm.gvariant;
       binding = "<Control><Super>l";
       command = "gnome-session-quit";
       name = "Logout";
+    };
+
+    "${keybinds}/custom6" = {
+      binding = "<Super>t";
+      command = "gnome-text-editor";
+      name = "Text Editor";
+    };
+
+    "${keybinds}/custom7" = {
+      binding = "<Super>s";
+      command = "systemctl suspend";
+      name = "Suspend";
+    };
+
+    "org/gnome/shell/keybindings" = {
+      toggle-quick-settings = [];
     };
 
     "system/locale" = {
