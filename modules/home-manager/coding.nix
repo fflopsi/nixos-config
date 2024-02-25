@@ -6,6 +6,8 @@
     android-studio
     jetbrains.idea-community
     jetbrains.pycharm-community
+    jetbrains.pycharm-professional
+    vscodium
   ];
 
   # Git
