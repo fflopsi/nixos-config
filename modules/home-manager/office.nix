@@ -8,7 +8,7 @@
     (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig xpatch datetime2 datetime2-english datetime2-german; })
     texstudio unstable.typst
     unstable.obsidian rnote xournalpp
-    geogebra6
+    geogebra6 speedcrunch
     megasync rclone
   ];
 
