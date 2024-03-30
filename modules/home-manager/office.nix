@@ -10,6 +10,7 @@
     unstable.obsidian rnote xournalpp
     geogebra6 speedcrunch
     megasync rclone
+    tigervnc
   ];
 
   # Autostart megasync
