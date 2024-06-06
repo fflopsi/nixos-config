@@ -92,6 +92,7 @@ with lib.hm.gvariant;
     "org/gnome/mutter" = {
       workspaces-only-on-primary = false;
       dynamic-workspaces = true;
+      experimental-features = [ "scale-monitor-framebuffer" ];
     };
 
     "org/gnome/shell/app-switcher" = {
@@ -123,6 +124,7 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
+      accel-profile = "flat";
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
