@@ -90,7 +90,7 @@
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     topgrade
-    firefox libreoffice
+    firefox thunderbird libreoffice
     micro btop tldr gitFull inetutils wget curl sl
     gnome.gnome-tweaks gnome.dconf-editor gnome-menus gnome-extension-manager
     gnomeExtensions.appindicator gnomeExtensions.clipboard-indicator
