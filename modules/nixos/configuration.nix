@@ -56,7 +56,7 @@
   services.printing.enable = true;
   # Enable printer specific fixes
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
 
   # Enable sound with pipewire
   sound.enable = true;

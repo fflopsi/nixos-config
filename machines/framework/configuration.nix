@@ -13,9 +13,11 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "lv3:ralt_switch";
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+      options = "lv3:ralt_switch";
+    };
   };
 
   # Configure console keymap
