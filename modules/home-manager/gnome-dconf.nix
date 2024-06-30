@@ -5,8 +5,8 @@ with lib.hm.gvariant;
   # Add script to change Gnome theme quickly
   home.file.".local/bin/change-theme".source = ../../files/change-theme;
 
-  # Change displayed places folders
-  home.file.".config/user-dirs.dirs".source = ../../files/user-dirs.dirs;
+  # Autostart megasync
+  home.file.".config/autostart/megasync.desktop".source = ../../files/megasync.desktop;
 
   # Dconf settings for Gnome
   dconf.settings = let keybinds = "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"; in {
