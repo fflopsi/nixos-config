@@ -2,6 +2,6 @@
 
 {
   imports = let modules = "../../modules/home-manager"; in [
-    ./${modules}/home.nix
+    ./${modules}/home-hyprland.nix
   ];
 }
