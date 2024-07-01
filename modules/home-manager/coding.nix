@@ -8,6 +8,7 @@
     jetbrains.pycharm-community
     jetbrains.pycharm-professional
     vscodium
+    git-credential-oauth
   ];
 
   # Git
@@ -17,7 +18,7 @@
     userEmail = "florian.l.frauenfelder@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-      credential.helper = "libsecret";
+      credential.helper = "oauth";
     };
   };
 }
