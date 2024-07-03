@@ -105,7 +105,7 @@
         10)
       );
       bindr = [
-        "$mod, Super_L, exec, pidof wofi && pkill wofi || wofi -S drun"
+        "$mod, Super_L, exec, pidof wofi && pkill wofi || wofi -S drun -I"
       ];
       bindl = [
         ",switch:on:Lid Switch, exec, systemctl suspend"
