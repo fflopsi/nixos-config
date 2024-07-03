@@ -10,7 +10,7 @@
     unstable.obsidian rnote xournalpp pandoc
     geogebra6 speedcrunch
     megasync rclone
-    tigervnc vlc
+    tigervnc vlc spotify
   ];
 
   # Change displayed places folders
