@@ -47,16 +47,17 @@
     # libinput.enable = true;
   };
 
-  # Hyprland
-  programs.hyprland.enable = true;
-
   networking.networkmanager.enable = true;
 
+  # Hyprland
+  programs.hyprland.enable = true;
+  security.pam.services.hyprlock = {};
+
+  # Power button and lid switch behavior
   services.logind = {
     powerKey = "suspend";
     lidSwitch = "suspend";
   };
-  security.pam.services.hyprlock = {};
 
   # Enable CUPS to print documents
   services.printing.enable = true;
@@ -103,11 +104,6 @@
 
   # Enable flatpak
   services.flatpak.enable = true;
-
-  #programs.kdeconnect = {
-  #  enable = true;
-  #  package = pkgs.kdePackages.kdeconnect-kde;
-  #};
 
   # Default apps
   xdg.mime.defaultApplications = {
