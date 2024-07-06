@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     heroic
-    discord
+    discord vesktop
     chromium
   ];
 }
