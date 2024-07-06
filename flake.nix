@@ -63,6 +63,7 @@
               useUserPackages = true;
               extraSpecialArgs = { inherit pkgs; };
               users.flopsi = import ./${machine}/home.nix;
+              backupFileExtension = "backup";
             };
           }
         ];
