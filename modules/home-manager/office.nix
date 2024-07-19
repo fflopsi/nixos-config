@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     onlyoffice-bin
     python3 python311Packages.pygments
-    (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray xpatch datetime2 datetime2-english datetime2-german; })
+    (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
     texstudio unstable.typst
     unstable.obsidian rnote xournalpp pandoc
     geogebra6 speedcrunch
