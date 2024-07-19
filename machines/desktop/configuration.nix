@@ -6,7 +6,7 @@
 {
   imports = let modules = "../../modules/nixos"; in [
     ./hardware-configuration.nix
-    ./${modules}/configuration.nix
+    ./${modules}/configuration-hyprland.nix
     ./${modules}/steam.nix
   ];
 
@@ -14,19 +14,15 @@
   networking.hostName = "flopsi-desktop-nix";
 
   # X11 windowing system
-  services.xserver = {
+  services.xserver.xkb = {
     # Configure keymap in X11
     layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "lv3:ralt_switch";
+    variant = "altgr-intl";
+    options = "lv3:ralt_switch";
   };
 
   # Configure console keymap
   console.keyMap = "us";
-
-  systemd.tmpfiles.rules = [
-    "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm_monitors.xml" "${builtins.readFile ../../files/monitors-desktop.xml}"}"
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
