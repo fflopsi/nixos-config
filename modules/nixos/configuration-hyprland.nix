@@ -47,6 +47,11 @@
     # libinput.enable = true;
   };
 
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
   networking.networkmanager.enable = true;
 
   # Hyprland
