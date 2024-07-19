@@ -24,7 +24,7 @@
 
   # Packages to be installed
   home.packages = with pkgs; [
-    terminus-nerdfont papirus-icon-theme adw-gtk3
+    terminus-nerdfont
     kitty gnome.nautilus wofi gnome-text-editor
     brightnessctl pamixer playerctl networkmanagerapplet grimblast xdg-desktop-portal-hyprland
     hypridle wl-clipboard
@@ -33,10 +33,35 @@
   # Add ~/.local/bin to path (for user-specific scripts)
   home.sessionPath = [ "$HOME/.local/bin" ];
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.graphite-cursors;
+    name = "graphite-dark";
+    size = 16;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+      #package = pkgs.gnome.gnome-themes-extra;
+      #name = "Adwaita-dark";
+    };
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus";
+    };
+    #cursorTheme = {
+    #  package = pkgs.graphite-cursors;
+    #  name = "graphite-dark";
+    #  size = 16;
+    #};
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = ",preferred,auto,1";
       "$mod" = "SUPER";
       exec-once = [
         "waybar & (sleep 5 && megasync)"
@@ -44,7 +69,6 @@
         "blueman-applet"
         "nm-applet"
         "wl-paste --watch cliphist store"
-        "kdeconnect-indicator"
       ];
       env = [
         "XCURSOR_SIZE, 24"
@@ -52,10 +76,10 @@
       ];
       bind = [
         "$mod, B, exec, firefox"
-        "$mod, R, exec, pidof wofi && pkill wofi || wofi -S run"
+        "$mod, R, exec, pkill wofi || wofi -S run"
         "$mod, T, exec, gnome-text-editor"
         ", Print, exec, grimblast copy area"
-        "$mod, V, exec, pidof wofi && pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
+        "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
         "CONTROL ALT, return, exec, kitty"
         "$mod, S, exec, systemctl suspend"
         "CONTROL ALT $mod, delete, exec, poweroff"
@@ -105,7 +129,7 @@
         10)
       );
       bindr = [
-        "$mod, Super_L, exec, pidof wofi && pkill wofi || wofi -S drun -I"
+        "$mod, Super_L, exec, pkill wofi || wofi -S drun -I"
       ];
       bindl = [
         ",switch:on:Lid Switch, exec, systemctl suspend"
@@ -156,6 +180,7 @@
         kb_layout = "us";
         kb_variant = "altgr-intl";
         kb_options = "lv3:ralt_switch";
+        numlock_by_default = true;
         follow_mouse = 1;
         accel_profile = "flat";
         sensitivity = 0.5;
@@ -213,7 +238,7 @@
     enable = true;
     settings = {
       general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
+        lock_cmd = "pidof hyprlock || hyprlock && pkill hyprlock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
