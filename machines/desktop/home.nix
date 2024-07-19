@@ -1,17 +1,14 @@
 { config, osConfig, pkgs, lib, ... }:
 
-with lib.hm.gvariant;
 {
   imports = let modules = "../../modules/home-manager"; in [
-    ./${modules}/home.nix
+    ./${modules}/home-hyprland.nix
     ./${modules}/gaming.nix
   ];
 
-  # Keyboard layout
-  dconf.settings = {
-    "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us+altgr-intl" ]) ];
-      xkb-options = [ "lv3:ralt_switch" ];
-    };
-  };
+  # Displays
+  wayland.windowManager.hyprland.settings.monitor = [
+    "DP-2,2560x1440@59.95,0x0,1"
+    "DP-1,2560x1440@279.96,2560x0,1,vrr,2"
+  ];
 }
