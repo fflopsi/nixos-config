@@ -27,7 +27,7 @@
     terminus-nerdfont
     kitty gnome.nautilus wofi gnome-text-editor
     brightnessctl pamixer playerctl networkmanagerapplet grimblast xdg-desktop-portal-hyprland
-    hypridle wl-clipboard
+    hypridle wl-clipboard udiskie
   ];
 
   # Add ~/.local/bin to path (for user-specific scripts)
@@ -69,6 +69,7 @@
         "blueman-applet"
         "nm-applet"
         "wl-paste --watch cliphist store"
+        "udiskie &"
       ];
       env = [
         "XCURSOR_SIZE, 24"

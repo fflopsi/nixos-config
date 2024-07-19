@@ -57,6 +57,7 @@
   # Hyprland
   programs.hyprland.enable = true;
   security.pam.services.hyprlock = {};
+  services.udisks2.enable = true;
 
   # Power button and lid switch behavior
   services.logind = {
