@@ -40,59 +40,58 @@
     };
   };
 
-  # X11 windowing system
-  services.xserver = {
-    enable = true;
-    # Enable touchpad support (enabled default in most desktopManager)
-    # libinput.enable = true;
+  services = {
+    # sddm display manager, works best with Hyprland
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    # For automounting disks
+    udisks2.enable = true;
+    # Power button and lid switch behavior
+    logind = {
+      powerKey = "suspend";
+      lidSwitch = "suspend";
+    };
+    # Enable CUPS
+    printing.enable = true;
+    # Printer specific fixes
+    avahi.enable = true;
+    avahi.nssmdns4 = true;
+    # Sound
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
+    # Blueman for bluetooth
+    blueman.enable = true;
+    # Flatpak
+    flatpak.enable = true;
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
+  # NetworkManager for networking
   networking.networkmanager.enable = true;
 
   # Hyprland
   programs.hyprland.enable = true;
   security.pam.services.hyprlock = {};
-  services.udisks2.enable = true;
 
-  # Power button and lid switch behavior
-  services.logind = {
-    powerKey = "suspend";
-    lidSwitch = "suspend";
-  };
-
-  # Enable CUPS to print documents
-  services.printing.enable = true;
-  # Enable printer specific fixes
-  services.avahi.enable = true;
-  services.avahi.nssmdns4 = true;
-
-  # Enable sound with pipewire
+  # Enable sound
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable bluetooth
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
-  services.blueman.enable = true;
 
   # Define user account
   users.users.flopsi = {
@@ -103,13 +102,9 @@
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
-    topgrade
-    firefox thunderbird libreoffice
-    micro btop tldr gitFull inetutils wget curl sl
+    firefox libreoffice micro nano
+    btop tldr gitFull inetutils wget curl sl
   ];
-
-  # Enable flatpak
-  services.flatpak.enable = true;
 
   # Default apps
   xdg.mime.defaultApplications = {
