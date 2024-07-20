@@ -5,5 +5,6 @@
     heroic
     discord vesktop
     chromium
+    piper
   ];
 }
