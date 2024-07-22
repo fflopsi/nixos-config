@@ -87,6 +87,7 @@
         ", Print, exec, grimblast copy area"
         "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
         "CONTROL ALT, return, exec, kitty"
+        "CONTROL SHIFT, escape, exec, kitty btop"
         "$mod, S, exec, systemctl suspend"
         "CONTROL ALT $mod, delete, exec, poweroff"
         "CONTROL $mod, R, exec, reboot"
