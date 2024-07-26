@@ -1,6 +1,7 @@
 { config, osConfig, pkgs, ... }:
 
-{
+let lock = "pidof hyprlock || hyprlock; sleep 1 && pkill -USR1 hyprlock";
+in {
   imports = [
     ./office.nix
     ./coding.nix
@@ -91,7 +92,7 @@
         "CONTROL ALT $mod, delete, exec, poweroff"
         "CONTROL $mod, R, exec, reboot"
         "$mod, Q, killactive,"
-        "$mod, L, exec, loginctl lock-session"
+        "$mod, L, exec, ${lock}"
         "$mod SHIFT, L, exit,"
         "$mod, E, exec, nautilus"
         "$mod, F, togglefloating,"
@@ -230,8 +231,9 @@
       enable = true;
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || hyprlock && while pkill -USR1 hyprlock; do :; done";
-          before_sleep_cmd = "loginctl lock-session";
+          lock_cmd = "${lock}";
+          unlock_cmd = "pkill -USR1 hyprlock";
+          before_sleep_cmd = "${lock}";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
         listener = [
@@ -242,7 +244,7 @@
           }
           {
             timeout = 300;
-            on-timeout = "loginctl lock-session";
+            on-timeout = "${lock}";
           }
           {
             timeout = 330;
@@ -270,6 +272,7 @@
     };
     hyprlock = {
       enable = true;
+      package = pkgs.unstable.hyprlock;
       settings = {
         general = {
           disable_loading_bar = false;
