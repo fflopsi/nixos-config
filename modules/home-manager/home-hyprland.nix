@@ -203,6 +203,7 @@
         "float, title:\\.blueman-manager-wrapped$"
         "move 100%-w-6 40, title:\\.blueman-manager-wrapped$"
         "float, title:Network Connections$"
+        "idleinhibit focus, title:Spotify$"
         "suppressevent maximize, class:.*"
       ];
     };
