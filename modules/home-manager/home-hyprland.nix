@@ -24,8 +24,7 @@
 
   # Packages to be installed
   home.packages = with pkgs; [
-    terminus-nerdfont
-    kitty gnome.nautilus wofi gnome-text-editor
+    gnome.nautilus wofi gnome-text-editor
     brightnessctl pamixer playerctl networkmanagerapplet grimblast xdg-desktop-portal-hyprland hypridle wl-clipboard udiskie
   ];
 
@@ -231,7 +230,7 @@
       enable = true;
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || hyprlock && pkill hyprlock";
+          lock_cmd = "pidof hyprlock || hyprlock && while pkill -USR1 hyprlock; do :; done";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
@@ -260,6 +259,15 @@
   };
 
   programs = {
+    fastfetch.enable = true;
+    kitty = {
+      enable = true;
+      font = {
+        name = "Terminess Nerd Font Mono Regular";
+        size = 14;
+        package = pkgs.terminus-nerdfont;
+      };
+    };
     hyprlock = {
       enable = true;
       settings = {
