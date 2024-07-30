@@ -24,8 +24,9 @@
   # Configure console keymap
   console.keyMap = "us";
 
-  # Gaming mouse
+  # Mouse and keyboard config
   services.ratbagd.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
