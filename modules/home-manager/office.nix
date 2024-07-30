@@ -14,5 +14,11 @@
   ];
 
   # Change displayed places folders
-  home.file.".config/user-dirs.dirs".source = ../../files/user-dirs.dirs;
+  xdg.userDirs = {
+    enable = true;
+    music = null;
+    pictures = null;
+    publicShare = null;
+    videos = null;
+  };
 }
