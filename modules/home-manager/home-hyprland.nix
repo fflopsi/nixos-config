@@ -1,6 +1,6 @@
 { config, osConfig, pkgs, ... }:
 
-let lock = "pidof hyprlock || hyprlock; sleep 1 && pkill -USR1 hyprlock";
+let lock = "pidof hyprlock || hyprlock";
 in {
   imports = [
     ./office.nix
@@ -238,7 +238,7 @@ in {
         };
         listener = [
           {
-            timeout = 150;
+            timeout = 240;
             on-timeout = "brightnessctl -s set 7";
             on-resume = "brightnessctl -r";
           }
