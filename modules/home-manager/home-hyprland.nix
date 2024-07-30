@@ -266,7 +266,7 @@ in {
       enable = true;
       font = {
         name = "Terminess Nerd Font Mono Regular";
-        size = 14;
+        size = 12;
         package = pkgs.terminus-nerdfont;
       };
     };
