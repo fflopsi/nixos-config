@@ -1,7 +1,6 @@
 { config, osConfig, pkgs, ... }:
 
-let lock = "pidof hyprlock || hyprlock";
-in {
+{
   imports = [
     ./office.nix
     ./coding.nix
@@ -70,7 +69,7 @@ in {
       "$mod" = "SUPER";
       exec-once = [
         "waybar & (sleep 5 && megasync)"
-        "hypridle"
+        #"hypridle" # DON'T or else hyprlock will be mad
         "blueman-applet"
         "nm-applet"
         "wl-paste --watch cliphist store"
@@ -92,7 +91,7 @@ in {
         "CONTROL ALT $mod, delete, exec, poweroff"
         "CONTROL $mod, R, exec, reboot"
         "$mod, Q, killactive,"
-        "$mod, L, exec, ${lock}"
+        "$mod, L, exec, loginctl lock-session"
         "$mod SHIFT, L, exit,"
         "$mod, E, exec, nautilus"
         "$mod, F, togglefloating,"
@@ -231,9 +230,8 @@ in {
       enable = true;
       settings = {
         general = {
-          lock_cmd = "${lock}";
-          unlock_cmd = "pkill -USR1 hyprlock";
-          before_sleep_cmd = "${lock}";
+          lock_cmd = "pidof hyprlock || hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
         listener = [
@@ -244,7 +242,7 @@ in {
           }
           {
             timeout = 300;
-            on-timeout = "${lock}";
+            on-timeout = "loginctl lock-session";
           }
           {
             timeout = 330;
