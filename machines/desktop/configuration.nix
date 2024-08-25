@@ -28,6 +28,14 @@
   services.ratbagd.enable = true;
   hardware.keyboard.qmk.enable = true;
 
+  # Mount Windows drive
+  boot.supportedFilesystems = [ "ntfs" ];
+  fileSystems."/mnt/windows" = {
+    device = "/dev/nvme0n1p3";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
