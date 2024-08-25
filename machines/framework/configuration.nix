@@ -24,7 +24,7 @@
   console.keyMap = "us";
 
   # Use a new enough kernel for the laptop
-  boot.kernelPackages = pkgs.linuxPackages_6_9;
+  boot.kernelPackages = pkgs.linuxPackages_6_10;
 
   # Enable fingerprint reader
   services.fprintd = {
