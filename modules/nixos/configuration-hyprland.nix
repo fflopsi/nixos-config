@@ -78,6 +78,21 @@
 
   # NetworkManager for networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.ensureProfiles.profiles = {
+    ethvpn = {
+      connection = {
+        id = "ETH VPN";
+        type = "vpn";
+        autoconnect = false;
+      };
+      vpn = {
+        service-type = "org.freedesktop.NetworkManager.openconnect";
+        gateway = "sslvpn.ethz.ch/student-net";
+        protocol = "anyconnect";
+        useragent = "AnyConnect";
+      };
+    };
+  };
 
   # Hyprland
   programs.hyprland.enable = true;
