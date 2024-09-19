@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,39 +7,41 @@
     ./bash.nix
   ];
 
-  home.username = "flopsi";
-  home.homeDirectory = "/home/flopsi";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "23.05";
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # Packages to be installed
-  home.packages = with pkgs; [
-    gnome.nautilus wofi gnome-text-editor
-    brightnessctl pamixer playerctl networkmanagerapplet grimblast xdg-desktop-portal-hyprland hypridle wl-clipboard udiskie
-  ];
-
-  # Add ~/.local/bin to path (for user-specific scripts)
-  home.sessionPath = [ "$HOME/.local/bin" ];
-
-  # Cursor theme
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.graphite-cursors;
-    name = "graphite-dark";
-    size = 16;
+  nix = {
+    gc = {
+      automatic = true; # Automate garbage collection
+      frequency = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
-  # GTK theming
+  home = {
+    username = "flopsi";
+    homeDirectory = "/home/flopsi";
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+    stateVersion = "23.05";
+    packages = with pkgs; [
+      gnome.nautilus wofi
+      brightnessctl pamixer playerctl networkmanagerapplet grimblast xdg-desktop-portal-hyprland hypridle wl-clipboard udiskie
+    ];
+    # Add ~/.local/bin to path (for user-specific scripts)
+    sessionPath = [ "$HOME/.local/bin" ];
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.graphite-cursors;
+      name = "graphite-dark";
+      size = 16;
+    };
+    # Lockscreen wallpaper
+    file.".config/hypr/hyprlock-bg.png".source = ../../files/nix-wallpaper-gear.png;
+  };
+
   gtk = {
     enable = true;
     theme = {
@@ -63,14 +65,20 @@
     #};
   };
 
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = [ "Terminess Nerd Font Mono Regular" ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       "$mod" = "SUPER";
       exec-once = [
-        "waybar & (sleep 5 && megasync)"
+        "waybar"
         #"hypridle" # DON'T or else hyprlock will be mad
-        "blueman-applet"
         "nm-applet"
         "wl-paste --watch cliphist store"
         "udiskie &"
@@ -87,6 +95,7 @@
         "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
         "CONTROL ALT, return, exec, kitty"
         "CONTROL SHIFT, escape, exec, kitty btop"
+        "CONTROL ALT, delete, exec, wlogout"
         "$mod, S, exec, systemctl suspend"
         "CONTROL ALT $mod, delete, exec, poweroff"
         "CONTROL $mod, R, exec, reboot"
@@ -208,58 +217,21 @@
     };
   };
 
-  home.file.".config/hypr/hyprlock-bg.png".source = ../../files/nix-wallpaper-gear.png;
-
-  services = {
-    cliphist.enable = true;
-    dunst = {
-      enable = true;
-      settings = {
-        global = {
-          width = 300;
-          height = 300;
-          offset = "20x20";
-          origin = "top-right";
-          transparency = 10;
-          #frame_color = "#eceff1";
-          font = "Droid Sans 10";
-        };
-      };
-    };
-    hypridle = {
-      enable = true;
-      settings = {
-        general = {
-          lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on";
-        };
-        listener = [
-          {
-            timeout = 240;
-            on-timeout = "brightnessctl -s set 7";
-            on-resume = "brightnessctl -r";
-          }
-          {
-            timeout = 300;
-            on-timeout = "loginctl lock-session";
-          }
-          {
-            timeout = 330;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
-          }
-          {
-            timeout = 600;
-            on-timeout = "systemctl suspend";
-          }
-        ];
-      };
-    };
-  };
-
   programs = {
+    home-manager.enable = true;
     fastfetch.enable = true;
+    micro.enable = true;
+    wlogout.enable = true;
+
+    btop = {
+      enable = true;
+      settings = {
+        color_theme = "adapta";
+        theme_background = false;
+        update_ms = 1000;
+      };
+    };
+
     kitty = {
       enable = true;
       font = {
@@ -268,6 +240,7 @@
         package = pkgs.terminus-nerdfont;
       };
     };
+
     hyprlock = {
       enable = true;
       package = pkgs.unstable.hyprlock;
@@ -300,6 +273,7 @@
         ];
       };
     };
+
     waybar = {
       enable = true;
       settings = {
@@ -382,6 +356,57 @@
           background-color: dimgrey;
         }
       '';
+    };
+  };
+
+  services = {
+    blueman-applet.enable = true;
+    cliphist.enable = true;
+
+    dunst = {
+      enable = true;
+      settings = {
+        global = {
+          width = 300;
+          height = 300;
+          offset = "20x20";
+          origin = "top-right";
+          transparency = 10;
+          #frame_color = "#eceff1";
+          font = "Droid Sans 10";
+        };
+      };
+    };
+
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "pidof hyprlock || hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+        };
+        listener = [
+          {
+            timeout = 240;
+            on-timeout = "brightnessctl -s set 7";
+            on-resume = "brightnessctl -r";
+          }
+          {
+            timeout = 300;
+            on-timeout = "loginctl lock-session";
+          }
+          {
+            timeout = 330;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+          {
+            timeout = 600;
+            on-timeout = "systemctl suspend";
+          }
+        ];
+      };
     };
   };
 }
