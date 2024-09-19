@@ -13,6 +13,12 @@
           type = "path";
         }
         {
+          type = "nix-shell";
+          style = "plain";
+          foreground = "blue";
+          template = "(nix-shell $(($SHLVL - 1))) ";
+        }
+        {
           foreground = "#FFE700";
           style = "plain";
           template = "{{ .HEAD }} ";

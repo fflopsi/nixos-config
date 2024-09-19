@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Bash
@@ -35,6 +35,7 @@
   # Oh my Posh prompt
   programs.oh-my-posh = {
     enable = true;
+    package = pkgs.unstable.oh-my-posh;
     enableBashIntegration = true;
     #useTheme = "powerlevel10k_lean";
     settings = import ./omp-theme.nix;
