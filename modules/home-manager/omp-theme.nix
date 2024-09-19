@@ -16,7 +16,7 @@
           type = "nix-shell";
           style = "plain";
           foreground = "blue";
-          template = "(nix-shell $(($SHLVL - 1))) ";
+          template = "($(($SHLVL - 1))) ";
         }
         {
           foreground = "#FFE700";
