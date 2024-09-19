@@ -117,7 +117,7 @@
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
-    firefox libreoffice micro nano fastfetch
+    firefox libreoffice nano fastfetch
     btop tldr gitFull inetutils wget curl sl
   ];
 
