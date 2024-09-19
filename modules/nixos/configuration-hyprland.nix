@@ -121,11 +121,6 @@
     btop tldr gitFull inetutils wget curl sl
   ];
 
-  # Default apps
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "firefox.desktop";
-  };
-
   # Sudo insults
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
 
