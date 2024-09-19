@@ -10,7 +10,6 @@
       ll = "ls -l";
       la = "ls -lA";
       gedit = "gnome-text-editor";
-      console = "kgx";
       ls = "ls --color=auto";
       diff = "diff --color=auto";
       grep = "grep --color=auto";
