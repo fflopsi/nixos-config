@@ -6,12 +6,13 @@
     jetbrains.idea-community
     jetbrains.pycharm-community
     jetbrains.pycharm-professional
-    git-credential-oauth
+    jetbrains.webstorm
   ];
 
   programs = {
     gh.enable = true;
     gh-dash.enable = true;
+    git-credential-oauth.enable = true;
     gradle.enable = true;
     java.enable = true;
     lazygit.enable = true;
@@ -22,7 +23,7 @@
       userEmail = "florian.l.frauenfelder@gmail.com";
       extraConfig = {
         init.defaultBranch = "main";
-        credential.helper = "oauth";
+        credential.helper = [ "oauth" "cache --timeout 86400" ];
       };
     };
 
