@@ -212,6 +212,7 @@
         "move 100%-w-6 40, title:\\.blueman-manager-wrapped$"
         "float, title:Network Connections$"
         "idleinhibit focus, title:Spotify$"
+        "idleinhibit fullscreen, title:(.*) Mozilla Firefox$"
         "suppressevent maximize, class:.*"
       ];
     };
