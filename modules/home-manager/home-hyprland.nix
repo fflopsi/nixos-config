@@ -184,9 +184,7 @@
         pseudotile = true;
         preserve_split = true;
       };
-      master = {
-        new_status = "master";
-      };
+      master.new_status = "master";
       misc = {
         allow_session_lock_restore = true;
         force_default_wallpaper = -1;
@@ -200,13 +198,9 @@
         follow_mouse = 1;
         accel_profile = "flat";
         sensitivity = 0.5;
-        touchpad = {
-            natural_scroll = true;
-        };
+        touchpad.natural_scroll = true;
       };
-      gestures = {
-        workspace_swipe = true;
-      };
+      gestures.workspace_swipe = true;
       windowrulev2 = [
         "float, title:\\.blueman-manager-wrapped$"
         "move 100%-w-6 40, title:\\.blueman-manager-wrapped$"
