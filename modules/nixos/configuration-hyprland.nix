@@ -48,6 +48,8 @@
     };
     # For automounting disks
     udisks2.enable = true;
+    # For trash to work correctly
+    gvfs.enable = true;
     # Power button and lid switch behavior
     logind = {
       powerKey = "suspend";
