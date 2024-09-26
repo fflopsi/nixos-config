@@ -4,31 +4,30 @@
       alignment = "left";
       segments = [
         {
-          foreground = "#77E4F7";
-          properties = {
-            style = "full";
-          };
+          type = "path";
           style = "plain";
           template = "{{ .Path }} ";
-          type = "path";
+          properties.style = "full";
+          foreground = "#77E4F7";
         }
         {
-          type = "nix-shell";
+          type = "command";
           style = "plain";
+          template = "{{ if .Output }}{{ .Output }} {{ end }}";
+          properties.command = "if [[ $SHLVL -gt 2 ]]; then echo '('$(($SHLVL-2))')'; fi";
           foreground = "blue";
-          template = "($(($SHLVL - 1))) ";
         }
         {
-          foreground = "#FFE700";
+          type = "git";
           style = "plain";
           template = "{{ .HEAD }} ";
-          type = "git";
+          foreground = "#FFE700";
         }
         {
-          foreground = "#43D426";
+          type = "text";
           style = "plain";
           template = "$ ";
-          type = "text";
+          foreground = "#43D426";
         }
       ];
       type = "prompt";
