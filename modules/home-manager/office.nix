@@ -7,7 +7,7 @@ with lib.hm.gvariant;
     onlyoffice-bin
     python3 python311Packages.pygments
     (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
-    texstudio unstable.typst
+    texstudio
     obsidian xournalpp pandoc
     geogebra6 speedcrunch
     rclone
