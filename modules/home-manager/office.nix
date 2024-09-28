@@ -12,6 +12,7 @@ with lib.hm.gvariant;
     geogebra6 speedcrunch
     rclone
     tigervnc vlc spotify
+    zoom-us
   ];
 
   home.file.".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
