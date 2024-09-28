@@ -14,13 +14,24 @@ with lib.hm.gvariant;
     tigervnc vlc spotify
   ];
 
+  home.file.".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
+
   # Change displayed places folders
-  xdg.userDirs = {
-    enable = true;
-    music = null;
-    pictures = null;
-    publicShare = null;
-    videos = null;
+  xdg = {
+    userDirs = {
+      enable = true;
+      music = null;
+      pictures = null;
+      publicShare = null;
+      videos = null;
+    };
+    desktopEntries.eth-setup1 = {
+      type = "Application";
+      name = "ETH Setup 1";
+      comment = "Open Firefox, Obsidian and Gnome Text Editor";
+      exec = "eth-setup1.sh";
+      categories = [ "Office" "Utility" ];
+    };
   };
 
   editorconfig = {
