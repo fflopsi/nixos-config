@@ -27,8 +27,14 @@ home = {
   # changes in each release.
   stateVersion = "23.05";
   packages = with pkgs; [
-    gnome.nautilus wofi
-    brightnessctl pamixer playerctl networkmanagerapplet grimblast xdg-desktop-portal-hyprland hypridle wl-clipboard udiskie
+    wofi
+    brightnessctl
+    pamixer playerctl pavucontrol
+    networkmanagerapplet
+    grimblast
+    xdg-desktop-portal-hyprland hypridle
+    wl-clipboard
+    udiskie
   ];
   # Add ~/.local/bin to path (for user-specific scripts)
   sessionPath = [ "$HOME/.local/bin" ];
@@ -204,6 +210,8 @@ wayland.windowManager.hyprland = {
     windowrulev2 = [
       "float, title:\\.blueman-manager-wrapped$"
       "move 100%-w-6 40, title:\\.blueman-manager-wrapped$"
+      "float, title:Volume Control$"
+      "move 100%-w-6 40, title:Volume Control"
       "float, title:Network Connections$"
       "idleinhibit focus, title:Spotify$"
       "idleinhibit fullscreen, title:(.*) Mozilla Firefox$"
@@ -360,6 +368,7 @@ programs = {
         pulseaudio = {
           format-muted = "Muted: {volume}%";
           on-click = "pamixer -t";
+          on-click-right = "pavucontrol";
         };
         tray = {
           spacing = 12;
