@@ -3,7 +3,7 @@
 with lib.hm.gvariant;
 {
 home.packages = with pkgs; [
-  gnome-text-editor gnome.file-roller
+  gnome-text-editor gnome.nautilus gnome.file-roller
   onlyoffice-bin
   python3 python311Packages.pygments
   (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
