@@ -4,54 +4,52 @@
 { config, pkgs, ... }:
 
 {
-  imports = let modules = "../../modules/nixos"; in [
-    ./hardware-configuration.nix
-    ./${modules}/configuration-hyprland.nix
-    ./${modules}/steam.nix
-  ];
+imports = let modules = "../../modules/nixos"; in [
+  ./hardware-configuration.nix
+  ./${modules}/configuration-hyprland.nix
+  ./${modules}/steam.nix
+];
 
-  # Networking
-  networking.hostName = "flopsi-desktop-nix";
+networking.hostName = "flopsi-desktop-nix";
 
-  # X11 windowing system
-  services.xserver.xkb = {
-    # Configure keymap in X11
-    layout = "us";
-    variant = "altgr-intl";
-    options = "lv3:ralt_switch";
-  };
+# X11 windowing system
+services.xserver.xkb = {
+  # Configure keymap in X11
+  layout = "us";
+  variant = "altgr-intl";
+  options = "lv3:ralt_switch";
+};
 
-  # Configure console keymap
-  console.keyMap = "us";
+console.keyMap = "us";
 
-  # Mouse and keyboard config
-  services.ratbagd.enable = true;
-  hardware.keyboard.qmk.enable = true;
+# Mouse and keyboard config
+services.ratbagd.enable = true;
+hardware.keyboard.qmk.enable = true;
 
-  # Mount Windows drive
-  boot.supportedFilesystems = [ "ntfs" ];
-  fileSystems."/mnt/windows" = {
-    device = "/dev/nvme0n1p3";
-    fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" ];
-  };
+# Mount Windows drive
+boot.supportedFilesystems = [ "ntfs" ];
+fileSystems."/mnt/windows" = {
+  device = "/dev/nvme0n1p3";
+  fsType = "ntfs-3g";
+  options = [ "rw" "uid=1000" ];
+};
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+# Some programs need SUID wrappers, can be configured further or are
+# started in user sessions.
+# programs.mtr.enable = true;
+# programs.gnupg.agent = {
+#   enable = true;
+#   enableSSHSupport = true;
+# };
 
-  # List services that you want to enable:
+# List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+# Enable the OpenSSH daemon.
+# services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+# Open ports in the firewall.
+# networking.firewall.allowedTCPPorts = [ ... ];
+# networking.firewall.allowedUDPPorts = [ ... ];
+# Or disable the firewall altogether.
+# networking.firewall.enable = false;
 }

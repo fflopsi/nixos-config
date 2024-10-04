@@ -4,35 +4,34 @@
 { config, pkgs, ... }:
 
 {
-  imports = let modules = "../../modules/nixos"; in [
-    ./hardware-configuration.nix
-    ./${modules}/configuration-hyprland.nix
-  ];
+imports = let modules = "../../modules/nixos"; in [
+  ./hardware-configuration.nix
+  ./${modules}/configuration-hyprland.nix
+];
 
-  networking.hostName = "flopsi-framework-nix";
+networking.hostName = "flopsi-framework-nix";
 
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "altgr-intl";
-      options = "lv3:ralt_switch";
-    };
+# Configure keymap in X11
+services.xserver = {
+  xkb = {
+    layout = "us";
+    variant = "altgr-intl";
+    options = "lv3:ralt_switch";
   };
+};
 
-  # Configure console keymap
-  console.keyMap = "us";
+console.keyMap = "us";
 
-  # Use a new enough kernel for the laptop
-  boot.kernelPackages = pkgs.linuxPackages_6_10;
+# Use a new enough kernel for the laptop
+boot.kernelPackages = pkgs.linuxPackages_6_10;
 
-  # Enable fingerprint reader
-  services.fprintd = {
-    enable = true;
-    #package = pkgs.fprintd-tod;
-    #tod = {
-    #  enable = true;
-    #  driver = pkgs.libfprint-2-tod1-goodix; # Somehow does not work
-    #};
-  };
+# Enable fingerprint reader
+services.fprintd = {
+  enable = true;
+  #package = pkgs.fprintd-tod;
+  #tod = {
+  #  enable = true;
+  #  driver = pkgs.libfprint-2-tod1-goodix; # Somehow does not work
+  #};
+};
 }
