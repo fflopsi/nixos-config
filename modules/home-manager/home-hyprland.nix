@@ -216,7 +216,6 @@
     home-manager.enable = true;
     fastfetch.enable = true;
     micro.enable = true;
-    wlogout.enable = true;
 
     btop = {
       enable = true;
@@ -266,6 +265,48 @@
           }
         ];
       };
+    };
+
+    wlogout = {
+      enable = true;
+      layout = [
+        {
+          label = "lock";
+          action = "loginctl lock-session";
+          text = "Lock";
+          keybind = "l";
+        }
+        {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "Shutdown";
+          keybind = "s";
+        }
+        {
+          label = "logout";
+          action = "hyprctl dispatch exit";
+          text = "Logout";
+          keybind = "e";
+        }
+        {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "Reboot";
+          keybind = "r";
+        }
+        {
+          label = "suspend";
+          action = "systemctl suspend";
+          text = "Suspend";
+          keybind = "u";
+        }
+        {
+          label = "hibernate";
+          action = "systemctl hibernate";
+          text = "Hibernate";
+          keybind = "h";
+        }
+      ];
     };
 
     waybar = {
