@@ -26,6 +26,14 @@ xdg = {
     publicShare = null;
     videos = null;
   };
+  mimeApps = {
+    enable = true;
+    defaultApplications."application/pdf" = "firefox.desktop";
+    defaultApplications."text/plain" = "org.gnome.TextEditor.desktop";
+    defaultApplications."image/jpeg" = "feh.desktop";
+    defaultApplications."image/png" = "feh.desktop";
+    defaultApplications."image/bmp" = "feh.desktop";
+  };
   desktopEntries.eth-setup1 = {
     type = "Application";
     name = "ETH Setup 1";
@@ -72,13 +80,4 @@ programs = {
 };
 
 services.megasync.enable = true;
-
-xdg.mimeApps = {
-  enable = true;
-  defaultApplications."application/pdf" = "firefox.desktop";
-  defaultApplications."text/plain" = "org.gnome.TextEditor.desktop";
-  defaultApplications."image/jpeg" = "feh.desktop";
-  defaultApplications."image/png" = "feh.desktop";
-  defaultApplications."image/bmp" = "feh.desktop";
-};
 }
