@@ -96,7 +96,7 @@ wayland.windowManager.hyprland = {
     bind = [
       "$mod, B, exec, firefox"
       "$mod, R, exec, pkill wofi || wofi -S run"
-      "$mod, T, exec, gnome-text-editor"
+      "$mod, T, exec, zeditor"
       ", Print, exec, grimblast copy area"
       "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
       "CONTROL ALT, return, exec, kitty"

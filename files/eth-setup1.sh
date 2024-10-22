@@ -2,4 +2,4 @@
 
 hyprctl dispatch exec "[workspace 1 silent] firefox"
 hyprctl dispatch exec "[workspace 2 silent] obsidian"
-hyprctl dispatch exec "[workspace 3 silent] gnome-text-editor"
+hyprctl dispatch exec "[workspace 3 silent] zeditor"

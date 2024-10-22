@@ -3,7 +3,8 @@
 with lib.hm.gvariant;
 {
 home.packages = with pkgs; [
-  gnome-text-editor gnome.nautilus gnome.file-roller
+  gnome.nautilus gnome.file-roller
+  unstable.zed-editor
   onlyoffice-bin
   python3 python311Packages.pygments
   (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
@@ -31,7 +32,7 @@ xdg = {
   mimeApps = {
     enable = true;
     defaultApplications."application/pdf" = "firefox.desktop";
-    defaultApplications."text/plain" = "org.gnome.TextEditor.desktop";
+    defaultApplications."text/plain" = "dev.zed.Zed.desktop";
     defaultApplications."image/jpeg" = "feh.desktop";
     defaultApplications."image/png" = "feh.desktop";
     defaultApplications."image/bmp" = "feh.desktop";
@@ -39,7 +40,7 @@ xdg = {
   desktopEntries.eth-setup1 = {
     type = "Application";
     name = "ETH Setup 1";
-    comment = "Open Firefox, Obsidian and Gnome Text Editor";
+    comment = "Open Firefox, Obsidian and Zed";
     exec = "eth-setup1.sh";
     categories = [ "Office" "Utility" ];
   };
@@ -63,22 +64,19 @@ editorconfig = {
   };
 };
 
-dconf.settings = {
-  "org/gnome/TextEditor" = {
-    discover-settings = true;
-    highlight-current-line = true;
-    indent-style = "space";
-    restore-session = true;
-    show-line-numbers = true;
-    show-map = true;
-    style-variant = "dark";
-    tab-width = mkUint32 2;
-  };
-};
-
 programs = {
   feh.enable = true;
   yt-dlp.enable = true;
+
+  #zed-editor = {
+  #  enable = true;
+  #  package = pkgs.unstable.zed-editor;
+  #  userSettings = {
+  #    base_keymap = "JetBrains";
+  #    theme = "Andromeda";
+  #  };
+  #  extensions = [ "nix" "xy-zed" ];
+  #};
 };
 
 services.megasync.enable = true;
