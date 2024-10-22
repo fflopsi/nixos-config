@@ -13,9 +13,11 @@ home.packages = with pkgs; [
   rclone
   tigervnc vlc spotify
   zoom-us
+  inotify-tools
 ];
 
 home.file.".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
+home.file.".local/bin/cp-snippets".source = ../../files/cp-snippets;
 
 # Change displayed places folders
 xdg = {
@@ -80,4 +82,18 @@ programs = {
 };
 
 services.megasync.enable = true;
+
+systemd.user.services.copy-latex-snippets = {
+  Unit = {
+    Description = "Copy Obsidian LaTeX Suite snippets to Obsidian vault upon changes in git repo";
+    After = "default.target";
+  };
+  Service = {
+    ExecStart = "%h/.local/bin/cp-snippets";
+    Restart = "on-failure";
+  };
+  Install = {
+    WantedBy = [ "default.target" ];
+  };
+};
 }
