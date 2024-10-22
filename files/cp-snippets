@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+FILE1=$HOME/Documents/Programming/latex-snippets/latex-suite-snippets.js
+FILE2=$HOME/Documents/Programming/latex-snippets/latex-suite-variables.js
+DEST_DIR=$HOME/Documents/ETH/ETH-Obsidian
+
+# Start monitoring the folder for file modifications
+inotifywait -m -e modify --format '%w%f' "$FILE1" "$FILE2" | while read MODIFIED_FILE
+do
+  cp $MODIFIED_FILE $DEST_DIR
+done
