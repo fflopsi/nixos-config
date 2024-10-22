@@ -109,10 +109,13 @@ users.users.flopsi = {
 };
 
 # List packages installed in system profile
-environment.systemPackages = with pkgs; [
-  firefox libreoffice nano fastfetch
-  btop tldr gitFull inetutils wget curl sl
-];
+environment = {
+  systemPackages = with pkgs; [
+    firefox libreoffice nano fastfetch
+    btop tldr gitFull inetutils wget curl sl
+  ];
+  pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
+};
 
 # Sudo insults
 security.sudo.package = pkgs.sudo.override { withInsults = true; };

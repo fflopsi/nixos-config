@@ -32,7 +32,7 @@ home = {
     pamixer playerctl pavucontrol
     networkmanagerapplet
     grimblast
-    xdg-desktop-portal-hyprland hypridle
+    hypridle
     wl-clipboard
     udiskie
   ];
