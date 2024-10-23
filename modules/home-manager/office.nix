@@ -93,6 +93,7 @@ programs = {
 };
 
 services.megasync.enable = true;
+systemd.user.services.megasync.Service.ExecStartPre = "/run/current-system/sw/bin/sleep 2";
 
 systemd.user.services.copy-latex-snippets = {
   Unit = {
