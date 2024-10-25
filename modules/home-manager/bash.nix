@@ -14,7 +14,6 @@ programs = {
     shellAliases = {
       ll = "ls -l";
       la = "ls -lA";
-      gedit = "gnome-text-editor";
       ls = "ls --color=auto";
       diff = "diff --color=auto";
       grep = "grep --color=auto";
