@@ -2,11 +2,10 @@
 
 {
 home.packages = with pkgs; [
+  nixd
   android-studio
   jetbrains.idea-community
-  jetbrains.pycharm-community
-  jetbrains.pycharm-professional
-  jetbrains.webstorm
+  jetbrains.pycharm-community jetbrains.pycharm-professional
 ];
 
 programs = {
