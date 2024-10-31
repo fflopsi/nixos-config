@@ -32,43 +32,28 @@ let
       })
     ];
   };
+  nixosSystem = machine: nixpkgs.lib.nixosSystem {
+    inherit system;
+    specialArgs = { inherit pkgs; };
+    modules = [
+      ./machines/${machine}/configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = { inherit pkgs; };
+          users.flopsi = import ./machines/${machine}/home.nix;
+          backupFileExtension = "backup";
+        };
+      }
+    ];
+  };
 in
 {
   nixosConfigurations = {
-    flopsi-desktop-nix = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit pkgs; };
-      modules = let machine = "machines/desktop"; in [
-        ./${machine}/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit pkgs; };
-            users.flopsi = import ./${machine}/home.nix;
-            backupFileExtension = "backup";
-          };
-        }
-      ];
-    };
-    flopsi-framework-nix = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit pkgs; };
-      modules = let machine = "machines/framework"; in [
-        ./${machine}/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit pkgs; };
-            users.flopsi = import ./${machine}/home.nix;
-            backupFileExtension = "backup";
-          };
-        }
-      ];
-    };
+    flopsi-desktop-nix = nixosSystem "desktop";
+    flopsi-framework-nix = nixosSystem "framework";
   };
 };
 }
