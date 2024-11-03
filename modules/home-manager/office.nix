@@ -1,6 +1,5 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
-with lib.hm.gvariant;
 {
 home.packages = with pkgs; [
   gnome.nautilus gnome.file-roller

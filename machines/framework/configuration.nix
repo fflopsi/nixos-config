@@ -1,7 +1,7 @@
 # IMPORTANT: If some error with python and arch-version of systemd
 # comes up when trying to rebuild, use '--install-bootloader'
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 imports = let modules = "../../modules/nixos"; in [

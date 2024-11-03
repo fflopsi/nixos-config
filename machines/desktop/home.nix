@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, lib, ... }:
+{ ... }:
 
 {
 imports = let modules = "../../modules/home-manager"; in [

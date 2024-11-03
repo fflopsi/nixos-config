@@ -1,6 +1,5 @@
 { lib, ... }:
 
-with lib.hm.gvariant;
 {
 # Add script to change Gnome theme quickly
 home.file.".local/bin/change-theme".source = ../../files/change-theme;
@@ -110,7 +109,7 @@ dconf.settings = let keybinds = "org/gnome/settings-daemon/plugins/media-keys/cu
 
   "org/gnome/TextEditor" = {
     indent-style = "space";
-    tab-width = mkUint32 2;
+    tab-width = lib.hm.gvariant.mkUint32 2;
   };
 
   "org/gnome/calculator" = {

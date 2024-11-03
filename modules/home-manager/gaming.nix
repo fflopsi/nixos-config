@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 home.packages = with pkgs; [
