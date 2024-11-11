@@ -92,8 +92,6 @@ programs = {
   #};
 };
 
-systemd.user.services.megasync.Service.ExecStartPre = "/run/current-system/sw/bin/sleep 2";
-
 systemd.user.services.copy-latex-snippets = {
   Unit = {
     Description = "Copy Obsidian LaTeX Suite snippets to Obsidian vault upon changes in git repo";
