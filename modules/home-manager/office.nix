@@ -17,8 +17,10 @@ home.packages = with pkgs; [
   inotify-tools
 ];
 
-home.file.".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
-home.file.".local/bin/cp-snippets".source = ../../files/cp-snippets;
+home.file = {
+  ".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
+  ".local/bin/cp-snippets".source = ../../files/cp-snippets;
+};
 
 # Change displayed places folders
 xdg = {
@@ -31,11 +33,13 @@ xdg = {
   };
   mimeApps = {
     enable = true;
-    defaultApplications."application/pdf" = "firefox.desktop";
-    defaultApplications."text/plain" = "dev.zed.Zed.desktop";
-    defaultApplications."image/jpeg" = "feh.desktop";
-    defaultApplications."image/png" = "feh.desktop";
-    defaultApplications."image/bmp" = "feh.desktop";
+    defaultApplications = {
+      "application/pdf" = "firefox.desktop";
+      "text/plain" = "dev.zed.Zed.desktop";
+      "image/jpeg" = "feh.desktop";
+      "image/png" = "feh.desktop";
+      "image/bmp" = "feh.desktop";
+    };
   };
   desktopEntries.eth-setup1 = {
     type = "Application";
