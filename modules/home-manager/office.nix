@@ -85,15 +85,30 @@ programs = {
   feh.enable = true;
   yt-dlp.enable = true;
 
-  #zed-editor = {
-  #  enable = true;
-  #  package = pkgs.unstable.zed-editor;
-  #  userSettings = {
-  #    base_keymap = "JetBrains";
-  #    theme = "Andromeda";
-  #  };
-  #  extensions = [ "nix" "xy-zed" ];
-  #};
+  # zed-editor = {
+  #   enable = true;
+  #   package = pkgs.unstable.zed-editor;
+  #   userSettings = {
+  #     base_keymap = "JetBrains";
+  #     theme = "Andromeda";
+  #     tab_size = 2;
+  #     autosave = "on_window_change";
+  #     soft_wrap = "editor_width";
+  #     ui_font_size = 16;
+  #     buffer_font_size = 16;
+  #   };
+  #   userKeymaps = [
+  #     {
+  #       context = "Editor";
+  #       bindings = {
+  #         ctrl-y = "editor::Redo";
+  #         alt-up = "editor::MoveLineUp";
+  #         alt-down = "editor::MoveLineDown";
+  #       };
+  #     }
+  #   ];
+  #   extensions = [ "nix" "basher" "latex" "java" "kotlin" "xml" "csv" "log" ];
+  # };
 };
 
 systemd.user.services.copy-latex-snippets = {
