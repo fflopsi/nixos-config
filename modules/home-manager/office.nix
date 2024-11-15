@@ -20,6 +20,8 @@ home.packages = with pkgs; [
 home.file = {
   ".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
   ".local/bin/cp-snippets".source = ../../files/cp-snippets;
+  ".config/zed/settings.json".source = ../../files/settings.json;
+  ".config/zed/keymap.json".source = ../../files/keymap.json;
 };
 
 # Change displayed places folders
