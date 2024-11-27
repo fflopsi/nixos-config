@@ -92,6 +92,7 @@ networking.networkmanager.ensureProfiles.profiles = {
 
 programs.hyprland.enable = true;
 security.pam.services.hyprlock = {};
+programs.ydotool.enable = true;
 
 # Enable sound
 sound.enable = true;
@@ -105,7 +106,7 @@ hardware.bluetooth = {
 users.users.flopsi = {
   isNormalUser = true;
   description = "Florian Frauenfelder";
-  extraGroups = [ "networkmanager" "wheel" ];
+  extraGroups = [ "networkmanager" "wheel" "ydotool" ];
 };
 
 # List packages installed in system profile

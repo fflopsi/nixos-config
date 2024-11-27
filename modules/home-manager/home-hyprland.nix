@@ -98,7 +98,7 @@ wayland.windowManager.hyprland = {
       "$mod, R, exec, pkill wofi || wofi -S run"
       "$mod, T, exec, zeditor"
       ", Print, exec, grimblast copy area"
-      "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy"
+      "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy && ydotool key 29:1; ydotool key 47:1; ydotool key 47:0; ydotool key 29:0"
       "CONTROL ALT, return, exec, kitty"
       "CONTROL SHIFT, escape, exec, kitty btop"
       "CONTROL ALT, delete, exec, wlogout"
