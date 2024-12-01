@@ -2,8 +2,7 @@
 
 {
 home.packages = with pkgs; [
-  gnome.nautilus gnome.file-roller
-  unstable.zed-editor
+  nautilus file-roller
   onlyoffice-bin
   python3 python311Packages.pygments
   (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
@@ -20,8 +19,6 @@ home.packages = with pkgs; [
 home.file = {
   ".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
   ".local/bin/cp-snippets".source = ../../files/cp-snippets;
-  ".config/zed/settings.json".source = ../../files/settings.json;
-  ".config/zed/keymap.json".source = ../../files/keymap.json;
 };
 
 # Change displayed places folders
@@ -87,30 +84,30 @@ programs = {
   feh.enable = true;
   yt-dlp.enable = true;
 
-  # zed-editor = {
-  #   enable = true;
-  #   package = pkgs.unstable.zed-editor;
-  #   userSettings = {
-  #     base_keymap = "JetBrains";
-  #     theme = "Andromeda";
-  #     tab_size = 2;
-  #     autosave = "on_window_change";
-  #     soft_wrap = "editor_width";
-  #     ui_font_size = 16;
-  #     buffer_font_size = 16;
-  #   };
-  #   userKeymaps = [
-  #     {
-  #       context = "Editor";
-  #       bindings = {
-  #         ctrl-y = "editor::Redo";
-  #         alt-up = "editor::MoveLineUp";
-  #         alt-down = "editor::MoveLineDown";
-  #       };
-  #     }
-  #   ];
-  #   extensions = [ "nix" "basher" "latex" "java" "kotlin" "xml" "csv" "log" ];
-  # };
+  zed-editor = {
+    enable = true;
+    package = pkgs.unstable.zed-editor;
+    userSettings = {
+      base_keymap = "JetBrains";
+      theme = "Andromeda";
+      tab_size = 2;
+      autosave = "on_window_change";
+      soft_wrap = "editor_width";
+      ui_font_size = 16;
+      buffer_font_size = 16;
+    };
+    userKeymaps = [
+      {
+        context = "Editor";
+        bindings = {
+          ctrl-y = "editor::Redo";
+          alt-up = "editor::MoveLineUp";
+          alt-down = "editor::MoveLineDown";
+        };
+      }
+    ];
+    extensions = [ "nix" "basher" "latex" "java" "kotlin" "xml" "csv" "log" ];
+  };
 };
 
 systemd.user.services.copy-latex-snippets = {

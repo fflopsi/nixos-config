@@ -4,10 +4,10 @@
 description = "Flake for nixos-rebuild";
 
 inputs = {
-  nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05"; # stable release
+  nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11"; # stable release
   nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable"; # unstable rolling release
   home-manager = {
-    url = "github:nix-community/home-manager/release-24.05"; # stable release
+    url = "github:nix-community/home-manager/release-24.11"; # stable release
     # url = "github:nix-community/home-manager"; # unstable rolling release
     inputs.nixpkgs.follows = "nixpkgs";
   };

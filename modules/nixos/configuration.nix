@@ -59,7 +59,6 @@ services.avahi.enable = true;
 services.avahi.nssmdns4 = true;
 
 # Enable sound with pipewire
-sound.enable = true;
 hardware.pulseaudio.enable = false;
 security.rtkit.enable = true;
 services.pipewire = {

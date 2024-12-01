@@ -95,7 +95,6 @@ security.pam.services.hyprlock = {};
 programs.ydotool.enable = true;
 
 # Enable sound
-sound.enable = true;
 security.rtkit.enable = true;
 
 hardware.bluetooth = {
