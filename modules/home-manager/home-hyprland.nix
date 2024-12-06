@@ -27,6 +27,7 @@ home = {
   # changes in each release.
   stateVersion = "23.05";
   packages = with pkgs; [
+    hyprpicker hyprpolkitagent
     wofi
     brightnessctl
     pamixer playerctl pavucontrol
@@ -89,6 +90,7 @@ wayland.windowManager.hyprland = {
       "nm-applet"
       "wl-paste --watch cliphist store"
       "udiskie &"
+      "systemctl --user start hyprpolkitagent"
     ];
     env = [
       "XCURSOR_SIZE, 24"
