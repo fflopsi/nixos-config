@@ -211,13 +211,15 @@ wayland.windowManager.hyprland = {
     };
     gestures.workspace_swipe = true;
     windowrulev2 = [
-      "float, title:\\.blueman-manager-wrapped$"
-      "move 100%-w-6 40, title:\\.blueman-manager-wrapped$"
+      "float, title:Bluetooth Devices$"
+      "move 100%-w-6 40, title:Bluetooth Devices$"
       "float, title:Volume Control$"
       "move 100%-w-6 40, title:Volume Control"
       "float, title:Network Connections$"
       "idleinhibit focus, title:Spotify$"
       "idleinhibit fullscreen, title:(.*) Mozilla Firefox$"
+      "float, title:MEGAsync$"
+      "move 100%-w-6 40, title:MEGAsync$"
       "suppressevent maximize, class:.*"
     ];
   };
