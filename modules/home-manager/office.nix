@@ -2,7 +2,7 @@
 
 {
 home.packages = with pkgs; [
-  nautilus file-roller
+  nautilus file-roller gnome-disk-utility
   onlyoffice-bin
   python3 python311Packages.pygments
   (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
