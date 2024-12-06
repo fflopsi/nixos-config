@@ -26,15 +26,8 @@ console.keyMap = "us";
 services.ratbagd.enable = true;
 hardware.keyboard.qmk.enable = true;
 
-# Mount Windows drive
+# Support Windows drive
 boot.supportedFilesystems = [ "ntfs" ];
-fileSystems."/mnt/windows" = {
-  label = "windows";
-  device = "/dev/nvme0n1p3";
-  fsType = "ntfs-3g";
-  options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
-  noCheck = true;
-};
 
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
