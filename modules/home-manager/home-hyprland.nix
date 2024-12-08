@@ -86,7 +86,9 @@ wayland.windowManager.hyprland = {
     "$mod" = "SUPER";
     exec-once = [
       "waybar & (sleep 5 && megasync)"
-      #"hypridle" # DON'T or else hyprlock will be mad
+      # DON'T or else hyprlock will be mad
+      # ^ this was before 24.11, now needs to be started manually
+      "hypridle"
       "nm-applet"
       "wl-paste --watch cliphist store"
       "udiskie &"
