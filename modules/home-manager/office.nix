@@ -89,6 +89,7 @@ programs = {
       theme = "Andromeda";
       tab_size = 2;
       autosave = "on_window_change";
+      format_on_save = "off";
       soft_wrap = "editor_width";
       ui_font_size = 16;
       buffer_font_size = 16;
