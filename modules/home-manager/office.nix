@@ -100,6 +100,7 @@ programs = {
         bindings = {
           ctrl-y = "editor::Redo";
           alt-up = "editor::MoveLineUp";
+          ctrl-w = "pane::CloseActiveItem";
           alt-down = "editor::MoveLineDown";
         };
       }
