@@ -270,7 +270,7 @@ programs = {
       input-field = [
         {
           size = "250, 50";
-          position = "0, -150";
+          position = "0, -200";
           monitor = "";
           dots_center = true;
           fade_on_empty = true;
@@ -280,6 +280,34 @@ programs = {
           outline_thickness = 2;
           placeholder_text = "Password";
           shadow_passes = 2;
+        }
+      ];
+      label = [
+        {
+          monitor = "";
+          text = "cmd[update:1000] date +'%T<br/>%a, %d. %b %Y'";
+          text_align = "center";
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+          font_size = "24";
+        }
+        {
+          monitor = "";
+          text = "cmd[update:10000] [ -f /sys/class/power_supply/BAT1/capacity ] && echo $(cat /sys/class/power_supply/BAT1/capacity)%";
+          text_align = "center";
+          position = "0, 10";
+          halign = "center";
+          font_size = "24";
+        }
+        {
+          monitor = "";
+          text = "$FPRINTMESSAGE";
+          text_align = "center";
+          position = "0, -250";
+          halign = "center";
+          valign = "center";
+          font_size = "12";
         }
       ];
     };
