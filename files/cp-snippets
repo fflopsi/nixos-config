@@ -3,9 +3,31 @@
 FILE1=$HOME/Documents/Programming/latex-snippets/latex-suite-snippets.js
 FILE2=$HOME/Documents/Programming/latex-snippets/latex-suite-variables.js
 DEST_DIR=$HOME/Documents/ETH/ETH-Obsidian
+INOTIFY_PID=0
 
-# Start monitoring the folder for file modifications
-inotifywait -m -e modify --format '%w%f' "$FILE1" "$FILE2" | while read MODIFIED_FILE
-do
-  cp $MODIFIED_FILE $DEST_DIR
-done
+setup_inotify() {
+  # If there's an existing inotify process, terminate it
+  if [ $INOTIFY_PID -ne 0 ]; then
+    kill $INOTIFY_PID 2>/dev/null
+  fi
+
+  # Start inotifywait
+  inotifywait -m -e modify -e delete_self --format '%w%f %e' "$FILE1" "$FILE2" | while read FILE EVENT
+  do
+    if [[ "$EVENT" == *DELETE_SELF* ]]; then
+      setup_inotify &
+      break
+    elif [[ "$EVENT" == *MODIFY* ]]; then
+      cp $FILE $DEST_DIR
+    fi
+  done &
+
+  # Store the new PID
+  INOTIFY_PID=$!
+}
+
+# Initial setup of inotify watches
+setup_inotify
+
+# Wait for all background processes
+wait
