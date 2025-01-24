@@ -4,7 +4,7 @@
 home.packages = with pkgs; [
   nixd
   android-studio
-  jetbrains.idea-community
+  jetbrains.idea-community jetbrains.idea-ultimate
   jetbrains.pycharm-community jetbrains.pycharm-professional
 ];
 
