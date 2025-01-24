@@ -3,11 +3,13 @@
 {
 home.packages = with pkgs; [
   nautilus file-roller gnome-disk-utility
+  thunderbird
   onlyoffice-bin
   python3 python311Packages.pygments
   (texlive.combine { inherit (texlive) scheme-medium minted cancel wrapfig tabularray enumitem xpatch datetime2 datetime2-english datetime2-german; })
   texstudio
   obsidian xournalpp pandoc
+  anki
   megasync
   geogebra6 speedcrunch
   rclone
