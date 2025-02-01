@@ -15,7 +15,7 @@ home.packages = with pkgs; [
   rclone
   tigervnc vlc spotify
   zoom-us
-  inotify-tools
+  inotify-tools nil texlab
 ];
 
 home.file = {
@@ -90,7 +90,7 @@ programs = {
       base_keymap = "JetBrains";
       theme = "Andromeda";
       tab_size = 2;
-      autosave = "on_window_change";
+      autosave = "on_focus_change";
       format_on_save = "off";
       soft_wrap = "editor_width";
       ui_font_size = 16;
