@@ -3,6 +3,7 @@
 {
 home.packages = with pkgs; [
   nixd
+  github-desktop
   android-studio
   jetbrains.idea-community jetbrains.idea-ultimate
   jetbrains.pycharm-community jetbrains.pycharm-professional
