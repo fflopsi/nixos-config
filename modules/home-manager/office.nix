@@ -3,6 +3,7 @@
 {
 home.packages = with pkgs; [
   nautilus file-roller gnome-disk-utility zip
+  bitwarden-desktop
   thunderbird
   onlyoffice-bin
   python3 python311Packages.pygments
