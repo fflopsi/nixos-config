@@ -23,7 +23,7 @@ services.xserver = {
 console.keyMap = "us";
 
 # Use a new enough kernel for the laptop
-boot.kernelPackages = pkgs.linuxPackages_6_11;
+boot.kernelPackages = pkgs.linuxPackages_latest;
 
 # Enable fingerprint reader
 services.fprintd = {
