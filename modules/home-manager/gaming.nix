@@ -3,7 +3,6 @@
 {
 home.packages = with pkgs; [
   heroic
-  discord vesktop
   piper
 ];
 }
