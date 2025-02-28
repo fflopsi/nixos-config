@@ -2,7 +2,7 @@
 
 {
 home.packages = with pkgs; [
-  nautilus file-roller gnome-disk-utility zip
+  nautilus file-roller gnome-disk-utility zip unzip
   bitwarden-desktop
   thunderbird discord vesktop
   onlyoffice-bin
