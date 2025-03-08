@@ -362,10 +362,16 @@ programs = {
         layer = "top";
         position = "top";
         height = 34;
-        spacing = 16;
+        spacing = 8;
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "backlight" "pulseaudio" "bluetooth" "network" "battery" "tray" ];
+        modules-right = [
+          "tray"
+          "bluetooth"
+          "network"
+          "pulseaudio"
+          "backlight"
+          "battery" ];
         "hyprland/window" = {
           icon = true;
         };
@@ -382,9 +388,11 @@ programs = {
         };
         battery = {
           states = {
+            low = 50;
             warning = 25;
             critical = 10;
           };
+          interval = 10;
         };
         backlight = {
           format = "🔆 {percent}%";
@@ -414,8 +422,23 @@ programs = {
       };
     };
     style = ''
+      .modules-right label.module {
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 6px;
+      }
       #workspaces button.active {
         background-color: darkgreen;
+      }
+      #battery {
+        color: white;
+        font-weight: bold;
+        background-color: darkgreen;
+        animation: 0;
+      }
+      #battery.low {
+        color: black;
+        background-color: goldenrod;
       }
       #battery.warning {
         color: black;
@@ -423,6 +446,23 @@ programs = {
       }
       #battery.critical {
         background-color: darkred;
+        animation: 0;
+      }
+      @keyframes blink {
+        to { background-color: black; }
+      }
+      #battery.critical:not(.charging) {
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: steps(12);
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      #backlight {
+        font-weight: bold;
+      }
+      #network {
+        color: white;
       }
       #network.wifi {
         background-color: darkslateblue;
@@ -436,6 +476,15 @@ programs = {
       }
       #network.disabled {
         background-color: dimgrey;
+      }
+      #pulseaudio {
+        background-color: #224422
+      }
+      #pulseaudio.muted {
+        background-color: #442222;
+      }
+      #tray {
+        border: 1px solid grey;
       }
     '';
   };
