@@ -387,6 +387,7 @@ programs = {
           };
         };
         battery = {
+          format = "{capacity:2}%";
           states = {
             low = 50;
             warning = 25;
@@ -412,7 +413,9 @@ programs = {
           tooltip-format-enumerate-connected = "{device_alias}";
         };
         pulseaudio = {
-          format-muted = "Muted: {volume}%";
+          format = "{icon} {volume:3}%";
+          format-muted = "🔇 {volume:3}%";
+          format-icons.default = [ "🔈" "🔉" "🔊" ];
           on-click = "pamixer -t";
           on-click-right = "pavucontrol";
         };
@@ -422,6 +425,9 @@ programs = {
       };
     };
     style = ''
+      * {
+        font-family: monospace;
+      }
       .modules-right label.module {
         padding-left: 8px;
         padding-right: 8px;
@@ -485,6 +491,9 @@ programs = {
       }
       #tray {
         border: 1px solid grey;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 6px;
       }
     '';
   };
