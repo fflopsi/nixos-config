@@ -396,7 +396,8 @@ programs = {
           interval = 10;
         };
         backlight = {
-          format = "🔆 {percent}%";
+          format = "{icon} {percent:3}%";
+          format-icons = [ "🔅" "🔆" ];
         };
         network = {
           format-wifi = "{essid} ({signalStrength}%)";
