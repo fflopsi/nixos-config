@@ -387,16 +387,18 @@ programs = {
           };
         };
         battery = {
-          format = "{capacity:2}%";
+          format = "{icon} {capacity:2}%";
+          format-icons = [ "🪫" "🔋" "🔋" "🔋" ];
+          format-charging = "🔌 {capacity:2}%";
           states = {
             low = 50;
             warning = 25;
             critical = 10;
           };
-          interval = 10;
+          interval = 5;
         };
         backlight = {
-          format = "{icon} {percent:3}%";
+          format = "{icon} {percent:2}%";
           format-icons = [ "🔅" "🔆" ];
         };
         network = {
@@ -414,8 +416,8 @@ programs = {
           tooltip-format-enumerate-connected = "{device_alias}";
         };
         pulseaudio = {
-          format = "{icon} {volume:3}%";
-          format-muted = "🔇 {volume:3}%";
+          format = "{icon} {volume:2}%";
+          format-muted = "🔇 {volume:2}%";
           format-icons.default = [ "🔈" "🔉" "🔊" ];
           on-click = "pamixer -t";
           on-click-right = "pavucontrol";
