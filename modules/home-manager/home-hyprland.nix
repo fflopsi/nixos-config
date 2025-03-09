@@ -372,17 +372,13 @@ programs = {
           "pulseaudio"
           "backlight"
           "battery" ];
-        "hyprland/window" = {
-          icon = true;
-        };
+        "hyprland/window".icon = true;
         clock = {
           format = "{:L%a, %d. %b %Y    %T}";
           locale = "de_CH.UTF-8";
           interval = 1;
           tooltip-format = "{calendar}";
-          actions = {
-            on-click = "mode";
-          };
+          actions.on-click = "mode";
           calendar = {
             mode = "month";
             mode-mon-col = 3;
@@ -432,9 +428,7 @@ programs = {
           on-click = "pamixer -t";
           on-click-right = "pavucontrol";
         };
-        tray = {
-          spacing = 12;
-        };
+        tray.spacing = 12;
       };
     };
     style = ''
