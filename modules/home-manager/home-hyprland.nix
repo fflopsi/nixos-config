@@ -435,6 +435,10 @@ programs = {
       * {
         font-family: monospace;
       }
+      .modules-center {
+        margin-left: 32px;
+        margin-right: 32px;
+      }
       .modules-right label.module {
         padding-left: 8px;
         padding-right: 8px;
