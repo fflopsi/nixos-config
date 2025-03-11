@@ -397,9 +397,9 @@ programs = {
           format-icons = [ "🪫" "🔋" "🔋" "🔋" ];
           format-charging = "🔌 {capacity:2}%";
           states = {
-            low = 50;
-            warning = 25;
-            critical = 10;
+            low = 49;
+            warning = 24;
+            critical = 9;
           };
           interval = 5;
         };
