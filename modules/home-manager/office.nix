@@ -108,7 +108,7 @@ programs = {
         };
       }
     ];
-    extensions = [ "nix" "basher" "latex" "java" "kotlin" "xml" "csv" "log" ];
+    extensions = [ "git-firefly" "nix" "basher" "latex" "java" "kotlin" "xml" "csv" "log" ];
   };
 };
 
