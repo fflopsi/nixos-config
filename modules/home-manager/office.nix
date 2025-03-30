@@ -101,6 +101,7 @@ programs = {
       soft_wrap = "editor_width";
       ui_font_size = 16;
       buffer_font_size = 16;
+      git.inline_blame.enabled = false;
     };
     userKeymaps = [
       {
