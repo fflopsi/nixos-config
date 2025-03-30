@@ -28,9 +28,9 @@ home.file = {
 xdg = {
   userDirs = {
     enable = true;
+    desktop = null;
     music = null;
     pictures = null;
-    publicShare = null;
     videos = null;
   };
   mimeApps = {
