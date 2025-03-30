@@ -439,6 +439,7 @@ programs = {
         border-radius: 6px;
       }
       #workspaces button.active {
+        color: white;
         background-color: darkgreen;
       }
       #battery {
@@ -489,6 +490,7 @@ programs = {
         background-color: dimgrey;
       }
       #pulseaudio {
+        color: white;
         background-color: #224422
       }
       #pulseaudio.muted {
