@@ -90,7 +90,11 @@ programs = {
     # package = pkgs.unstable.zed-editor; # zed 177.7 seems to be broken with hyprland
     userSettings = {
       base_keymap = "JetBrains";
-      theme = "Andromeda";
+      theme = {
+        mode = "system";
+        dark = "Ayu Dark";
+        light = "Ayu Light";
+      };
       tab_size = 2;
       autosave = "on_focus_change";
       format_on_save = "off";
