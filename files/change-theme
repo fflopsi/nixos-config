@@ -2,10 +2,10 @@
 
 # Change theming from dark to light or vice versa
 
-if [[ $(gsettings get org.gnome.desktop.interface color-scheme) =~ .*dark.* ]]; then
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
-    gsettings set org.gnome.desktop.interface color-scheme default
+if [[ $(dconf read /org/gnome/desktop/interface/color-scheme) == "'prefer-dark'" ]]; then
+  dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+  dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3'"
 else
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+  dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3-dark'"
 fi
