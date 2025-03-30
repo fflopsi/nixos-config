@@ -102,6 +102,29 @@ programs = {
       ui_font_size = 16;
       buffer_font_size = 16;
       git.inline_blame.enabled = false;
+      languages = {
+        JavaScript.prettier = {
+          allowed = true;
+          singleQuote = true;
+          jsxSingleQuote = true;
+        };
+        TypeScript = {
+          code_actions_on_format."source.organizeImports" = true;
+          prettier = {
+            allowed = true;
+            singleQuote = true;
+            jsxSingleQuote = true;
+          };
+        };
+        TSX = {
+          code_actions_on_format."source.organizeImports" = true;
+          prettier = {
+            allowed = true;
+            singleQuote = true;
+            jsxSingleQuote = true;
+          };
+        };
+      };
     };
     userKeymaps = [
       {
