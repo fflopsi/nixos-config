@@ -54,22 +54,11 @@ gtk = {
   theme = {
     package = pkgs.adw-gtk3;
     name = "adw-gtk3-dark";
-    #package = pkgs.gnome.gnome-themes-extra;
-    #name = "Adwaita-dark";
   };
   iconTheme = {
     package = pkgs.papirus-icon-theme;
     name = "Papirus";
   };
-  #font = {
-  #  name = "FreeSans Regular";
-  #  package = pkgs.freefont_ttf;
-  #};
-  #cursorTheme = {
-  #  package = pkgs.graphite-cursors;
-  #  name = "graphite-dark";
-  #  size = 16;
-  #};
 };
 
 fonts.fontconfig = {
