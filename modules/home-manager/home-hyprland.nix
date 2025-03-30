@@ -82,6 +82,8 @@ wayland.windowManager.hyprland = {
       "wl-paste --watch cliphist store"
       "udiskie &"
       "systemctl --user start hyprpolkitagent"
+      "dconf write /org/gnome/desktop/interface/color-scheme \"'prefer-dark'\""
+      "dconf write /org/gnome/desktop/interface/gtk-scheme \"'adw-gtk3-dark'\""
     ];
     env = [
       "XCURSOR_SIZE, 24"
