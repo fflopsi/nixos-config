@@ -36,6 +36,7 @@ home = {
     hypridle
     wl-clipboard
     udiskie
+    dconf
   ];
   # Add ~/.local/bin to path (for user-specific scripts)
   sessionPath = [ "$HOME/.local/bin" ];
@@ -47,6 +48,7 @@ home = {
   };
   # Lockscreen wallpaper
   file.".config/hypr/hyprlock-bg.png".source = ../../files/nix-wallpaper-gear.png;
+  file.".local/bin/change-theme".source = ../../files/change-theme;
 };
 
 gtk = {
@@ -97,6 +99,7 @@ wayland.windowManager.hyprland = {
       "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy && sleep 0.2 && ydotool key 29:1; ydotool key 47:1; ydotool key 47:0; ydotool key 29:0"
       "CONTROL ALT, return, exec, kitty"
       "CONTROL SHIFT, escape, exec, kitty btop"
+      "CONTROL ALT, 0, exec, change-theme"
       "CONTROL ALT, delete, exec, wlogout"
       "$mod, S, exec, systemctl suspend"
       "CONTROL ALT $mod, delete, exec, poweroff"
