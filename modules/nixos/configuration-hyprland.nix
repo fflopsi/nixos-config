@@ -37,10 +37,15 @@ i18n = {
 };
 
 services = {
-  # sddm display manager, works best with Hyprland
-  displayManager.sddm = {
+  # tuigreet greeter
+  greetd = {
     enable = true;
-    wayland.enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland -t -r --user-menu --power-shutdown 'poweroff' --power-reboot 'reboot'";
+        user = "greeter";
+      };
+    };
   };
   # For automounting disks
   udisks2.enable = true;
@@ -92,12 +97,13 @@ networking.networkmanager.ensureProfiles.profiles = {
   };
 };
 
-programs.hyprland = {
-  enable = true;
-  withUWSM = true;
+programs = {
+  hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+  ydotool.enable = true;
 };
-security.pam.services.hyprlock = {};
-programs.ydotool.enable = true;
 
 # Enable sound
 security.rtkit.enable = true;
@@ -116,6 +122,7 @@ users.users.flopsi = {
 # List packages installed in system profile
 environment = {
   systemPackages = with pkgs; [
+    greetd.tuigreet
     seahorse
     firefox libreoffice nano fastfetch
     btop tldr gitFull inetutils wget curl sl
