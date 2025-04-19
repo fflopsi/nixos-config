@@ -211,8 +211,10 @@ wayland.windowManager.hyprland = {
     windowrulev2 = [
       "float, title:Bluetooth Devices$"
       "move 100%-w-6 40, title:Bluetooth Devices$"
+      "size 40% 40%, title:Bluetooth Devices$"
       "float, title:Volume Control$"
       "move 100%-w-6 40, title:Volume Control"
+      "size 40% 40%, title:Volume Control"
       "float, title:Network Connections$"
       "idleinhibit focus, title:Spotify$"
       "idleinhibit fullscreen, title:(.*) Mozilla Firefox$"
