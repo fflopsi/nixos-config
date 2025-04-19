@@ -11,7 +11,7 @@ home.packages = with pkgs; [
   texstudio
   obsidian xournalpp pandoc
   anki
-  megasync
+  nextcloud-client
   geogebra6 speedcrunch
   rclone
   tigervnc vlc spotify

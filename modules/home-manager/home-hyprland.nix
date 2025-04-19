@@ -76,7 +76,8 @@ wayland.windowManager.hyprland = {
   settings = {
     "$mod" = "SUPER";
     exec-once = [
-      "waybar & (sleep 5 && megasync)"
+      "waybar"
+      "sleep 5 && nextcloud"
       # DON'T or else hyprlock will be mad
       # ^ this was before 24.11, now needs to be started manually
       "hypridle"
