@@ -216,8 +216,9 @@ wayland.windowManager.hyprland = {
       "float, title:Network Connections$"
       "idleinhibit focus, title:Spotify$"
       "idleinhibit fullscreen, title:(.*) Mozilla Firefox$"
-      "float, title:MEGAsync$"
-      "move 100%-w-6 40, title:MEGAsync$"
+      "float, title:Nextcloud"
+      "move 100%-w-6 40, title:Nextcloud"
+      "size 40% 40%, title:Nextcloud"
       "suppressevent maximize, class:.*"
     ];
   };
