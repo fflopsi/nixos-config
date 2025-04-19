@@ -2,7 +2,7 @@
 
 {
 imports = let modules = "../../modules/home-manager"; in [
-  ./${modules}/home-hyprland.nix
+  ./${modules}/home.nix
 ];
 
 wayland.windowManager.hyprland.settings = {

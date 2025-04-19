@@ -6,7 +6,7 @@
 {
 imports = let modules = "../../modules/nixos"; in [
   ./hardware-configuration.nix
-  ./${modules}/configuration-hyprland.nix
+  ./${modules}/configuration.nix
 ];
 
 networking.hostName = "flopsi-framework-nix";
