@@ -2,7 +2,7 @@
 
 FILE1=$HOME/Documents/Programming/latex-snippets/latex-suite-snippets.js
 FILE2=$HOME/Documents/Programming/latex-snippets/latex-suite-variables.js
-DEST_DIR=$HOME/Documents/ETH/ETH-Obsidian
+DEST_DIR=$HOME/Documents/Polybox/Obsidian
 INOTIFY_PID=0
 
 setup_inotify() {
