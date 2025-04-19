@@ -72,7 +72,6 @@ fonts.fontconfig = {
 
 wayland.windowManager.hyprland = {
   enable = true;
-  systemd.enable = false;
   settings = {
     "$mod" = "SUPER";
     exec-once = [
@@ -510,6 +509,10 @@ programs = {
 services = {
   blueman-applet.enable = true;
   cliphist.enable = true;
+  gnome-keyring = {
+    enable = true;
+    components = [ "pkcs11" "secrets" "ssh" ];
+  };
 
   dunst = {
     enable = true;

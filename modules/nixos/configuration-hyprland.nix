@@ -71,6 +71,8 @@ services = {
   # Blueman for bluetooth
   blueman.enable = true;
   flatpak.enable = true;
+  # Gnome keyring
+  gnome.gnome-keyring.enable = true;
 };
 
 networking.networkmanager.enable = true;
@@ -114,6 +116,7 @@ users.users.flopsi = {
 # List packages installed in system profile
 environment = {
   systemPackages = with pkgs; [
+    seahorse
     firefox libreoffice nano fastfetch
     btop tldr gitFull inetutils wget curl sl
   ];
