@@ -163,7 +163,17 @@ wayland.windowManager.hyprland = {
       "size 40% 40%, title:Nextcloud"
       "suppressevent maximize, class:.*"
     ];
+    plugin.hyprexpo = {
+      columns = 3;
+      gap_size = 0;
+      workspace_method = "first 1";
+      enable_gesture = true;
+      gesture_fingers = 3;
+      gesture_distance = 200;
+      gesture_positive = false;
+    };
   };
+  plugins = with pkgs.hyprlandPlugins; [ hyprexpo ];
 };
 
 programs.hyprlock = {
