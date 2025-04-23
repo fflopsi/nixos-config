@@ -6,6 +6,7 @@ home = {
     hypridle
     hyprpolkitagent
     hyprpicker
+    hyprshot
   ];
   # Lockscreen wallpaper
   file.".config/hypr/hyprlock-bg.png".source = ../../files/nix-wallpaper-gear.png;
@@ -35,7 +36,7 @@ wayland.windowManager.hyprland = {
       "$mod, B, exec, firefox"
       "$mod, R, exec, pkill wofi || wofi -S run"
       "$mod, T, exec, zeditor"
-      ", Print, exec, grimblast copy area"
+      ", Print, exec, hyprshot -z -m region --clipboard-only"
       "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy && sleep 0.2 && ydotool key 29:1; ydotool key 47:1; ydotool key 47:0; ydotool key 29:0"
       "CONTROL ALT, return, exec, kitty"
       "CONTROL SHIFT, escape, exec, kitty btop"

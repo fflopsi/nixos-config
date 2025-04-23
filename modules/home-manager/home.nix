@@ -32,7 +32,6 @@ home = {
     brightnessctl
     pamixer playerctl pavucontrol
     networkmanagerapplet
-    grimblast
     wl-clipboard
     udiskie
     dconf
