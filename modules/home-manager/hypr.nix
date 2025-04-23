@@ -57,6 +57,7 @@ wayland.windowManager.hyprland = {
       "$mod, down, movefocus, d"
       "$mod, tab, cyclenext,"
       "ALT, tab, cyclenext,"
+      "$mod, O, hyprexpo:expo, toggle"
       "$mod SHIFT, tab, cyclenext, prev"
       "ALT SHIFT, tab, cyclenext, prev"
       "$mod, mouse_down, workspace, e+1"
