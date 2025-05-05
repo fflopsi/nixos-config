@@ -22,8 +22,9 @@ boot.loader = {
 time.timeZone = "Europe/Zurich";
 
 i18n = {
-  defaultLocale = "en_US.UTF-8"; # System language
+  defaultLocale = "en_GB.UTF-8"; # System language
   extraLocaleSettings = { # Formats
+    LANGUAGE = "en_GB:en";
     LC_ADDRESS = "de_CH.UTF-8";
     LC_IDENTIFICATION = "de_CH.UTF-8";
     LC_MEASUREMENT = "de_CH.UTF-8";
