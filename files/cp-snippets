@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# No shebang, this gets generated
 
 FILE1=$HOME/Documents/Programming/latex-snippets/latex-suite-snippets.js
 FILE2=$HOME/Documents/Programming/latex-snippets/latex-suite-variables.js

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  cpSnippets = pkgs.writeShellScriptBin "cp-snippets" (builtins.readFile ../../files/cp-snippets);
+in {
 home.packages = with pkgs; [
   nautilus file-roller gnome-disk-utility zip unzip
   bitwarden-desktop
@@ -17,12 +19,9 @@ home.packages = with pkgs; [
   tigervnc vlc spotify
   zoom-us
   inotify-tools nil texlab
-];
+] ++ [ cpSnippets ];
 
-home.file = {
-  ".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
-  ".local/bin/cp-snippets".source = ../../files/cp-snippets;
-};
+home.file.".local/bin/eth-setup1.sh".source = ../../files/eth-setup1.sh;
 
 # Change displayed places folders
 xdg = {
@@ -144,14 +143,15 @@ programs = {
 systemd.user.services.copy-latex-snippets = {
   Unit = {
     Description = "Copy Obsidian LaTeX Suite snippets to Obsidian vault upon changes in git repo";
-    After = "default.target";
+    After = "graphical-session.target";
+    Wants = "graphical-session.target";
   };
   Service = {
-    ExecStart = "%h/.local/bin/cp-snippets";
+    ExecStart = "${cpSnippets}/bin/cp-snippets";
     Restart = "on-failure";
   };
   Install = {
-    WantedBy = [ "default.target" ];
+    WantedBy = [ "graphical-session.target" ];
   };
 };
 }
