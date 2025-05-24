@@ -12,9 +12,7 @@ programs = {
     historyControl = [ "ignoredups" "erasedups" ];
     historyIgnore = [ "exit" "clear" ];
     shellAliases = {
-      ll = "ls -l";
       la = "ls -lA";
-      ls = "ls --color=auto";
       diff = "diff --color=auto";
       grep = "grep --color=auto";
       ip = "ip --color=auto";

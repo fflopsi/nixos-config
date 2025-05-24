@@ -5,8 +5,10 @@ home = {
   packages = with pkgs; [
     hypridle
     hyprpolkitagent
+    hyprland-qtutils
     hyprpicker
     hyprshot
+    hyprsysteminfo
   ];
   # Lockscreen wallpaper
   file.".config/hypr/hyprlock-bg.png".source = ../../files/nix-wallpaper-gear.png;
@@ -151,18 +153,18 @@ wayland.windowManager.hyprland = {
     };
     gestures.workspace_swipe = true;
     windowrulev2 = [
-      "float, title:Bluetooth Devices$"
-      "move 100%-w-6 40, title:Bluetooth Devices$"
-      "size 40% 40%, title:Bluetooth Devices$"
-      "float, title:Volume Control$"
-      "move 100%-w-6 40, title:Volume Control"
-      "size 40% 40%, title:Volume Control"
-      "float, title:Network Connections$"
-      "idleinhibit focus, title:Spotify$"
-      "idleinhibit fullscreen, title:(.*) Mozilla Firefox$"
-      "float, title:Nextcloud"
-      "move 100%-w-6 40, title:Nextcloud"
-      "size 40% 40%, title:Nextcloud"
+      "float, title:^Bluetooth Devices$"
+      "move 100%-w-6 40, title:^Bluetooth Devices$"
+      "size 40% 40%, title:^Bluetooth Devices$"
+      "float, title:^Volume Control$"
+      "move 100%-w-6 40, title:^Volume Control"
+      "size 40% 40%, title:^Volume Control"
+      "float, title:^Nextcloud$"
+      "move 100%-w-6 40, title:^Nextcloud$"
+      "size 40% 40%, title:^Nextcloud$"
+      "float, title:^Network Connections$"
+      "idleinhibit focus, class:^Spotify$"
+      "idleinhibit fullscreen, title:^(.*) Mozilla Firefox$"
       "suppressevent maximize, class:.*"
     ];
     plugin.hyprexpo = {

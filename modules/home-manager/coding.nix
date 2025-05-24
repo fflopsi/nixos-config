@@ -31,7 +31,7 @@ programs = {
   vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = [ pkgs.vscode-extensions.bbenoist.nix ];
+    profiles.default.extensions = [ pkgs.vscode-extensions.bbenoist.nix ];
   };
 };
 }

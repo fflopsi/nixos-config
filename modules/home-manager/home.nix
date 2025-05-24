@@ -85,7 +85,7 @@ programs = {
     font = {
       name = "Terminess Nerd Font Mono Regular";
       size = 12;
-      package = pkgs.terminus-nerdfont;
+      package = pkgs.nerd-fonts.terminess-ttf;
     };
   };
 
@@ -101,7 +101,7 @@ programs = {
       {
         label = "shutdown";
         action = "systemctl poweroff";
-        text = "Shutdown";
+        text = "Poweroff";
         keybind = "s";
       }
       {
