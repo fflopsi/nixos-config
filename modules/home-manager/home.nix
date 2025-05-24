@@ -59,6 +59,11 @@ gtk = {
   };
 };
 
+qt = {
+  enable = true;
+  style.name = "adwaita-dark";
+};
+
 fonts.fontconfig = {
   enable = true;
   defaultFonts = {
