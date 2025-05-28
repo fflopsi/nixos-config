@@ -132,6 +132,7 @@ programs = {
           alt-up = "editor::MoveLineUp";
           ctrl-w = "pane::CloseActiveItem";
           alt-down = "editor::MoveLineDown";
+          alt-ctrl-o = "projects::OpenRecent";
         };
       }
     ];
