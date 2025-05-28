@@ -182,13 +182,14 @@ programs.hyprlock = {
   enable = true;
   settings = {
     general = {
-      grace = 0;
       hide_cursor = true;
-      enable_fingerprint = true;
+      immediate_render = true;
     };
+    auth.fingerprint.enabled = true;
     background = [
       {
         path = "$HOME/.config/hypr/hyprlock-bg.png";
+        color = "rgb(32, 32, 32)";
         blur_passes = 2;
         blur_size = 8;
       }
@@ -224,11 +225,12 @@ programs.hyprlock = {
         text_align = "center";
         position = "0, 10";
         halign = "center";
+        valign = "bottom";
         font_size = "24";
       }
       {
         monitor = "";
-        text = "$FPRINTMESSAGE";
+        text = "$FPRINTPROMPT";
         text_align = "center";
         position = "0, -250";
         halign = "center";
