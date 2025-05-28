@@ -45,8 +45,6 @@ wayland.windowManager.hyprland = {
       "CONTROL ALT, 0, exec, change-theme"
       "CONTROL ALT, delete, exec, wlogout"
       "$mod, S, exec, systemctl suspend"
-      "CONTROL ALT $mod, delete, exec, poweroff"
-      "CONTROL $mod, R, exec, reboot"
       "$mod, Q, killactive,"
       "$mod, L, exec, loginctl lock-session"
       "$mod SHIFT, L, exit,"
