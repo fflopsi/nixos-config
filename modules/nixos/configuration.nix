@@ -79,6 +79,8 @@ services = {
   flatpak.enable = true;
   # Gnome keyring
   gnome.gnome-keyring.enable = true;
+  # Ratbagd for gaming mice
+  ratbagd.enable = true;
 };
 
 networking.networkmanager.enable = true;
