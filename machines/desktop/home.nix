@@ -1,10 +1,30 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
 imports = let modules = "../../modules/home-manager"; in [
   ./${modules}/home.nix
   ./${modules}/gaming.nix
 ];
+
+home.packages = with pkgs; [
+  piper
+];
+
+systemd.user.services.ratbag-init = {
+  Unit = {
+    Description = "Re-initialize G502 profile via ratbagctl";
+    After = [ "graphical-session.target" ];
+  };
+
+  Service = {
+    ExecStart = "${pkgs.libratbag}/bin/ratbagctl \"Logitech Gaming Mouse G502\" profile 0 enable";
+    Type = "oneshot";
+  };
+
+  Install = {
+    WantedBy = [ "default.target" ];
+  };
+};
 
 wayland.windowManager.hyprland.settings = {
   monitor = [
