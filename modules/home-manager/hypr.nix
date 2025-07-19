@@ -36,35 +36,36 @@ wayland.windowManager.hyprland = {
     ];
     bind = [
       "$mod, B, exec, firefox"
-      "$mod, R, exec, pkill wofi || wofi -S run"
-      "$mod, T, exec, zeditor"
-      ", Print, exec, hyprshot -z -m region --clipboard-only"
-      "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy && sleep 0.2 && ydotool key 29:1; ydotool key 47:1; ydotool key 47:0; ydotool key 29:0"
-      "CONTROL ALT, return, exec, kitty"
-      "CONTROL SHIFT, escape, exec, kitty btop"
-      "CONTROL ALT, 0, exec, change-theme"
-      "CONTROL ALT, delete, exec, wlogout"
-      "$mod, S, exec, systemctl suspend"
-      "$mod, Q, killactive,"
-      "$mod, L, exec, loginctl lock-session"
-      "$mod SHIFT, L, exit,"
       "$mod, E, exec, nautilus"
       "$mod, F, togglefloating,"
-      "$mod, P, pseudo,"
       "$mod, J, togglesplit,"
+      "$mod, L, exec, loginctl lock-session"
+      "$mod, O, hyprexpo:expo, toggle"
+      "$mod, P, pseudo,"
+      "$mod, Q, killactive,"
+      "$mod, R, exec, pkill wofi || wofi -S run"
+      "$mod, S, exec, systemctl suspend"
+      "$mod, T, exec, zeditor"
+      "$mod, V, exec, pkill wofi || cliphist list | wofi -S dmenu | cliphist decode | wl-copy && sleep 0.2 && ydotool key 29:1; ydotool key 47:1; ydotool key 47:0; ydotool key 29:0"
+      "$mod, W, exec, pkill waybar || waybar"
+      "$mod SHIFT, L, exit,"
       "$mod, left, movefocus, l"
       "$mod, right, movefocus, r"
       "$mod, up, movefocus, u"
       "$mod, down, movefocus, d"
       "$mod, tab, cyclenext,"
       "ALT, tab, cyclenext,"
-      "$mod, O, hyprexpo:expo, toggle"
       "$mod SHIFT, tab, cyclenext, prev"
       "ALT SHIFT, tab, cyclenext, prev"
       "$mod, mouse_down, workspace, e+1"
       "$mod, mouse_up, workspace, e-1"
       "CONTROL ALT, right, workspace, e+1"
       "CONTROL ALT, left, workspace, e-1"
+      "CONTROL ALT, return, exec, kitty"
+      "CONTROL ALT, 0, exec, change-theme"
+      "CONTROL ALT, delete, exec, wlogout"
+      "CONTROL SHIFT, escape, exec, kitty btop"
+      ", Print, exec, hyprshot -z -m region --clipboard-only"
       ", XF86AudioRaiseVolume, exec, pamixer -i 5"
       ", XF86AudioLowerVolume, exec, pamixer -d 5"
       ", XF86AudioMute, exec, pamixer -t"
@@ -198,14 +199,11 @@ programs.hyprlock = {
       {
         size = "250, 50";
         position = "0, -200";
-        monitor = "";
-        dots_center = true;
-        fade_on_empty = true;
         font_color = "rgb(202, 211, 245)";
         inner_color = "rgb(91, 96, 120)";
         outer_color = "rgb(24, 25, 38)";
+        capslock_color = "rgb(255, 255, 0)";
         outline_thickness = 2;
-        placeholder_text = "Password";
         shadow_passes = 2;
       }
     ];
