@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+imports = [
+  ./flatpak.nix
+];
+
 nix = {
   settings.experimental-features = [ "nix-command" "flakes" ]; # Enable flakes
   optimise.automatic = true; # Optimise nix store by hardlinking
@@ -76,7 +80,6 @@ services = {
   };
   # Blueman for bluetooth
   blueman.enable = true;
-  flatpak.enable = true;
   # Gnome keyring
   gnome.gnome-keyring.enable = true;
 };

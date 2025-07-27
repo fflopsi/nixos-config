@@ -11,9 +11,10 @@ inputs = {
     # url = "github:nix-community/home-manager"; # unstable rolling release
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 };
 
-outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+outputs = { nixpkgs, nixpkgs-unstable, home-manager, nix-flatpak, ... }:
 let
   system = "x86_64-linux";
   # For using pkgs.unstable.<package> instead of unstable.<package>
@@ -46,11 +47,13 @@ let
               config.allowUnfree = true;
               overlays = [ overlay ];
             };
+            nix-flatpak = nix-flatpak;
           };
           users.flopsi = import ./machines/${machine}/home.nix;
           backupFileExtension = "backup";
         };
       }
+      nix-flatpak.nixosModules.nix-flatpak
     ];
   };
 in

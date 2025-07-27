@@ -6,6 +6,7 @@ imports = [
   ./office.nix
   ./coding.nix
   ./bash.nix
+  ./flatpak.nix
 ];
 
 nix = {
