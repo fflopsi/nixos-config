@@ -106,11 +106,13 @@ programs = {
     enable = true;
     withUWSM = true;
   };
+  firefox.enable = true;
   ydotool.enable = true;
 };
 
 # Enable sound
 security.rtkit.enable = true;
+security.polkit.enable = true;
 
 hardware.bluetooth = {
   enable = true;
@@ -128,7 +130,7 @@ environment = {
   systemPackages = with pkgs; [
     greetd.tuigreet
     seahorse
-    firefox libreoffice nano fastfetch
+    libreoffice nano fastfetch
     btop tldr gitFull inetutils wget curl sl
   ];
   pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
