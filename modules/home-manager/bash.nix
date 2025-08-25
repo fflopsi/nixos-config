@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
 programs = {
@@ -35,8 +35,6 @@ programs = {
 
   oh-my-posh = {
     enable = true;
-    package = pkgs.unstable.oh-my-posh;
-    #useTheme = "powerlevel10k_lean";
     settings = import ./omp-theme.nix;
   };
 };
